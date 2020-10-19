@@ -1,0 +1,29 @@
+.NavProfile {
+    font-size: 50%;
+    display: flex;
+
+}
+
+.Link {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.Link:hover {
+    color: #6e1e13;
+}
+
+.NavProfile span {
+    padding-right: 5px;
+    padding-left: 5px;
+    align-self: center;
+}
+
+.Or {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.NavProfile span img {
+    padding-right: 50px;
+}

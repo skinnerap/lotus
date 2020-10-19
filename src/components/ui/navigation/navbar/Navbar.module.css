@@ -1,0 +1,111 @@
+.Navbar {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 20px;
+    padding-left: 90px;
+    font-size: 135%;
+    background-color: #fff;
+    border-bottom: 2px solid rgb(204, 204, 204);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.Navbar span {
+    align-self: center;
+    padding-right: 200px;
+    cursor: pointer;
+}
+
+.Navbar span svg {
+    width: 20px;
+}
+
+.Navbar span svg path {
+    transition: .6s;
+    fill: #313131;
+}
+
+.Navbar span svg path:hover {
+    fill: #F0A017;
+}
+
+.Navbar nav {
+    padding-right: 50px;
+    padding-top: 5px;
+    
+}
+
+.Navbar ul {
+    list-style: none;
+    margin-left: 10px;
+    display: flex;
+}
+
+.Navbar ul li {
+    align-self: center;
+}
+
+.Navbar ul li a, .Navbar ul li span{
+    text-decoration: none;
+    padding-left: 30px;
+    color: #313131;
+    transition: .4s;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    font-size: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.Navbar ul li span:hover {
+    color: #F0A017;
+}
+
+.Navbar ul li a:hover {
+    color: #F0A017;
+}
+
+.Navbar ul li a:enabled {
+    color: #931D48;
+}
+
+.Navbar .logo {
+    color: #F0A017;
+    cursor: inherit;
+    letter-spacing: .4rem;
+}
+
+.MobileOnly {
+    display: none;
+    font-size: 200%;
+}
+
+#ham {
+    font-size: 200%;
+}
+
+@media(max-width: 1000px) {
+    .MobileOnly {
+        display: block;
+    }
+
+    .DesktopOnly {
+        display: none;
+    }
+}
+
+@media(max-width: 600px) {
+    .Navbar .logo {
+        font-size: 85%;
+        letter-spacing: .1rem;
+    }
+
+    .Navbar ul li span {
+        padding-left: 0;
+    }
+}

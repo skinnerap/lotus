@@ -1,0 +1,33 @@
+.Sidedrawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 60%;
+    z-index: 1000;
+    background-color: rgb(241, 241, 241);
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    justify-content: center;
+    transition: .8s;
+    font-variant: all-petite-caps;
+}
+
+.Sidedrawer ul {
+    line-height: 6rem;
+    list-style: none;
+    padding-left: 0;
+}
+
+.Sidedrawer ul li a, .Sidedrawer ul li span {
+    text-decoration: none;
+    color: rgb(32 33 37);
+    font-weight: 500;
+    font-size: 200%;
+    transition: .4s;
+}
+
+.Sidedrawer ul li a:hover, .Sidedrawer ul li span:hover {
+    color: rgb(223 179 19);
+}
