@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './header/Header';
+import Subheader from './subheader/Subheader';
 
 class Home extends Component{
 
@@ -7,9 +8,7 @@ class Home extends Component{
         return (
             <div>
                 <Header />
-                <div>
-                    <p>This will be more content</p>
-                </div>
+                <Subheader />
             </div>
         )
     }

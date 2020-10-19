@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Aux from '../hoc/Auxi';
 
 // Views to Render
-import Home from '../views/Home';
+import Home from '../views/home/Home';
 
 // Navigation
 import Navbar from './navigation/navbar/Navbar';
