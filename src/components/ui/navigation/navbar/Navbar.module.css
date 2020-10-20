@@ -25,12 +25,12 @@
 }
 
 .Navbar span svg path {
-    transition: .6s;
-    fill: #313131;
+    transition: .6s; 
+    fill: #F0A017;
 }
 
 .Navbar span svg path:hover {
-    fill: #F0A017;
+    fill: #313131;
 }
 
 .Navbar nav {

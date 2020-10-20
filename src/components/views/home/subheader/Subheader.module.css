@@ -3,6 +3,8 @@
     height: 100px;
     display: flex;
     justify-content: center;
+    border-top: 2px solid rgb(204, 204, 204);
+    border-bottom: 2px solid rgba(204, 204, 204, 0.418);
 }
 
 .Subheader span {
@@ -20,4 +22,40 @@
     font-weight: 600;
     cursor: pointer;
     text-transform: uppercase;
+}
+
+.Subheader .Slogan {
+    text-transform: uppercase;
+    font-size: 160%;
+    font-weight: 600;
+    color: rgb(75, 20, 11);
+}
+
+.Subheader .CreateAccount {
+    border: 2px solid rgb(75, 20, 11);
+    color: rgb(75, 20, 11);
+    font-weight: 600;
+    padding: 5px 20px;
+    transition: .5s;
+}
+
+.Subheader .Login {
+    color: #FFAD41;
+    font-weight: 600;
+    transition: .5s;
+}
+
+.Subheader .CreateAccount:hover {
+    color: #FFAD41;
+    border: 2px solid #FFAD41;
+}
+
+.Subheader .Login:hover {
+    color: rgb(75, 20, 11);
+}
+
+.Subheader .Or {
+    padding: 0;
+    font-weight: 800;
+    font-size: 70%;
 }

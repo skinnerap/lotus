@@ -4,11 +4,11 @@ import classes from './Subheader.module.css';
 const subheader = () => {
     return (
         <div className={classes.Subheader}>
-            <span>Free Rewards Program</span>
+            <span className={classes.Slogan}>Free Rewards Program</span>
             <span>
-                <button>Create Account</button>
-                <span>OR</span>
-                <button>Login</button>
+                <button className={classes.CreateAccount}>Create Account</button>
+                <span className={classes.Or}>OR</span>
+                <button className={classes.Login}>Login</button>
             </span>
             
         </div>

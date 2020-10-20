@@ -1,0 +1,27 @@
+.Menu {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: rgb(238, 238, 238);
+}
+
+.Menu div {
+    align-content: center;
+    text-align: center;
+    width: 22%;
+    align-self: flex-end;
+    padding-bottom: 60px;
+}
+
+.Menu img {
+    width: 200px;
+    align-self: center;
+    cursor: pointer;
+}
+
+.Menu .Title {
+    cursor: pointer;
+}
