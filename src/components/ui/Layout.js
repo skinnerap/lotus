@@ -13,6 +13,7 @@ import Home from '../views/home/Home';
 // Navigation
 import Navbar from './navigation/navbar/Navbar';
 import Sidedrawer from './navigation/sidedrawer/Sidedrawer';
+import Footer from './navigation/footer/Footer';
 
 // UX Helpers
 import Backdrop from './ux/backdrop/Backdrop';
@@ -51,6 +52,7 @@ class Layout extends Component {
                             component={Home}
                         />
                     </Switch>
+                    <Footer />
                 </Router>
             </Aux>
         )
