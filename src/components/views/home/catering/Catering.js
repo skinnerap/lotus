@@ -22,6 +22,9 @@ const catering = () => {
                     <li>
                         Delivery and setup options available!
                     </li>
+                    <li>
+                        Great for casual parties, corporate meetings, and weddings!
+                    </li>
                 </ul>
             </div>
         </div>

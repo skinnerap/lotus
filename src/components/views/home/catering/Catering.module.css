@@ -1,0 +1,26 @@
+.Catering {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    color: #451C1C;
+    padding-bottom: 50px;
+}
+
+.Catering h5 {
+    text-align: center;
+    font-size: 170%;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.Box {
+    align-self: center;
+    display: flex;
+    flex-flow: row;
+}
+
+.Catering ul {
+    line-height: 4rem;
+    font-size: 110%;
+    font-weight: 500;
+}
