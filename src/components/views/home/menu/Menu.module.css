@@ -5,7 +5,7 @@
     justify-content: center;
     padding-top: 50px;
     padding-bottom: 50px;
-    background-color: rgb(238, 238, 238);
+    background-color: rgb(245, 245, 245);
 }
 
 .Menu div {
@@ -14,14 +14,26 @@
     width: 22%;
     align-self: flex-end;
     padding-bottom: 60px;
+    color: rgb(43, 43, 43);
+    transition: .5s;
 }
 
 .Menu img {
     width: 200px;
     align-self: center;
     cursor: pointer;
+    transition: .5s;
 }
 
-.Menu .Title {
+
+.Menu img:hover {
+    transform: rotate(45deg);
+}
+
+.Menu div:hover {
+    color: #FFAD41;
+}
+
+.Menu h3 {
     cursor: pointer;
 }

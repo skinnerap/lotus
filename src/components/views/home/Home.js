@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from './header/Header';
 import Subheader from './subheader/Subheader';
 import Menu from './menu/Menu';
+import Infographic from './infographic/Info';
+import Catering from './catering/Catering';
 
 class Home extends Component{
 
@@ -11,6 +13,8 @@ class Home extends Component{
                 <Header />
                 <Subheader />
                 <Menu />
+                <Infographic />
+                <Catering />
             </div>
         )
     }
