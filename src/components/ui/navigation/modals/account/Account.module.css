@@ -11,24 +11,24 @@
 }
 
 /* width */
-::-webkit-scrollbar {
+.Login::-webkit-scrollbar {
     width: 20px;
-  }
+}
   
   /* Track */
-  ::-webkit-scrollbar-track {
+.Login::-webkit-scrollbar-track {
     background: #e6d1ac;
-  }
+}
   
   /* Handle */
-  ::-webkit-scrollbar-thumb {
+.Login::-webkit-scrollbar-thumb {
     background: #451c1c41;
-  }
+}
   
   /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+.Login::-webkit-scrollbar-thumb:hover {
     background:#2c121291;
-  }
+}
 
 .Login h3 {
     text-transform: uppercase;
@@ -75,14 +75,6 @@
 
 .Login .Account {
     margin-top: 20px;
-    background-color: #65522E;
-}
-
-.Login .Forgot {
-    background-color: transparent;
-    border: none;
-    color: #451C1C;
-    font-weight: 700;
 }
 
 .Login input {
@@ -125,4 +117,23 @@
 div.Form {
     display: flex;
     flex-flow: column;
+}
+
+.Account {
+    cursor: pointer;
+    transition: .5s;
+    border: 1px solid transparent;
+    background-color: #451C1C;
+}
+
+.Account:hover {
+    background-color: transparent;
+    border: 1px solid #451C1C;
+    color: #451C1C;
+}
+
+.Login p {
+    width: 50%;
+    font-size: 60%;
+    margin: auto;
 }

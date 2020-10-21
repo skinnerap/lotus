@@ -80,6 +80,14 @@
     letter-spacing: .4rem;
 }
 
+.Navbar span button {
+    border: none;
+    text-transform: uppercase;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 50%;
+}
+
 .MobileOnly {
     display: none;
     font-size: 200%;

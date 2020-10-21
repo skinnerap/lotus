@@ -59,3 +59,47 @@
     font-weight: 800;
     font-size: 70%;
 }
+
+@media(max-width: 800px) {
+    .Subheader .Slogan, .Subheader .Login, .Subheader .CreateAccount {
+        font-size: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .Subheader span {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .Subheader .CreateAccount {
+        font-size: 100%;
+    }
+}
+
+@media(max-width: 600px) {
+    .Subheader .Slogan, .Subheader .Login {
+        font-size: 90%;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .Subheader span {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .Subheader .CreateAccount {
+        font-size: 90%;
+    }
+}
+
+@media(max-width: 500px) {
+    .Subheader {
+        flex-flow: column;
+    }
+
+    .Subheader span {
+        padding-bottom: 10px;
+    }
+}

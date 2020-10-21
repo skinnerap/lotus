@@ -73,8 +73,21 @@
         margin: auto;
     }
 
-    .Catering ul {
-        padding-left: 10px;
-        padding-right: 10px;
+    .Catering ul li {
+        padding-left: 30px;
+        padding-right: 30px;
+        line-height: 2.4rem;
+        font-size: 100%;
+        font-weight: 500;
+        align-self: center;
+        list-style: none;
+    }
+
+    .Catering .CateringBtn button {
+        
+        padding: 10px 20px;
+        font-size: 100%;
+        font-weight: 500;
+        margin-top: 10px;
     }
 }

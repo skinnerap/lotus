@@ -25,21 +25,18 @@ const account = ( props ) => {
                 <input type='text' name="password" placeholder='Password' />
                 <input type='text' name="passwordConfirmation" placeholder='Confirm Password' />
                 <input type='text' name="phoneNumber" placeholder='Phone Number' />
-                <input type='date' name="birthday" placeholder='Birthday' />
-                    
-                <button className={classes.LoginButton}>
-                    Login
-                </button>
-
-                <button className={classes.Forgot}>
-                    Forgot Password?
-                </button>
-
-                <span className={classes.Or}>Or</span>
+                <input type='text' name="birthday" placeholder='Birthday (mm/dd)' />
 
                 <button className={classes.Account}>
                     Create Account
                 </button>
+
+                <p>
+                    By creating this account, I am confirming I am 13 years of age or older, 
+                    will be automatically enrolled in Lotus: Asian House Rewards, will receive email updates,
+                    promotions and offers from Lotus: Asian House, and agree to Lotus Asian House's Privacy Policy, 
+                    Terms of Use and Lotus: Asian House's Rewards Terms and Conditions.
+                </p>
 
             </div>
             
