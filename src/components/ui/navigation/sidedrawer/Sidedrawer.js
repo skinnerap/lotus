@@ -21,16 +21,16 @@ const sideDrawer = ( props ) => {
         <div className={classes.Sidedrawer} style={joinedClasses}>
             <ul>
                 <li>
-                    <NavLink  onClick={props.clickedLink} exact activeStyle={{ color: '#8d1b5a' }} to='/'>Home</NavLink>
+                    <NavLink  onClick={props.clickedLink} exact activeStyle={{ color: '#711616' }} to='/'>Order</NavLink>
                 </li>
                 <li>
-                    <NavLink onClick={props.clickedLink} activeStyle={{ color: '#8d1b5a' }} to='/portfolio'>Portfolio</NavLink>
+                    <NavLink onClick={props.clickedLink} activeStyle={{ color: '#711616' }} to='/catering'>Catering</NavLink>
                 </li>
                 <li>
-                    <NavLink onClick={props.clickedLink} activeStyle={{ color: '#8d1b5a' }} to='/contact'>Contact</NavLink>
+                    <NavLink onClick={props.clickedLink} activeStyle={{ color: '#711616' }} to='/values'>Our Values</NavLink>
                 </li>
                 <li>
-                    <span onClick={props.clicked}>Resume</span>
+                    <NavLink onClick={props.clickedLink} activeStyle={{ color: '#711616' }} to='/nutrition'>Nutrition</NavLink>
                 </li>
             </ul>
         </div>

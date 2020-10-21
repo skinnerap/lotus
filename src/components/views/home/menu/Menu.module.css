@@ -37,3 +37,19 @@
 .Menu h3 {
     cursor: pointer;
 }
+
+@media(max-width: 850px) {
+    .Menu h3 {
+        font-size: 90%;
+    }
+
+    .Menu img {
+        width: 150px;
+    }
+}
+
+@media(max-width: 550px) {
+    .Menu div {
+        width: 50%;
+    }
+}

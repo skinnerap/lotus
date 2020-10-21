@@ -1,14 +1,14 @@
 import React from 'react';
 import classes from './Subheader.module.css';
 
-const subheader = () => {
+const subheader = ( props ) => {
     return (
         <div className={classes.Subheader}>
             <span className={classes.Slogan}>Free Rewards Program</span>
             <span>
-                <button className={classes.CreateAccount}>Create Account</button>
+                <button onClick={props.clickedAccount} className={classes.CreateAccount}>Create Account</button>
                 <span className={classes.Or}>OR</span>
-                <button className={classes.Login}>Login</button>
+                <button onClick={props.clickedLogin} className={classes.Login}>Login</button>
             </span>
             
         </div>

@@ -1,11 +1,10 @@
 .Modal {
     width: 70%;
-    height: 70vh;
     background-color: #ebebeb;
     position: fixed;
-    top: 15%;
+    top: 10%;
     left: 15%;
-    z-index: 100;
+    z-index: 1000;
     transition: .6s;
 }
 

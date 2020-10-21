@@ -25,6 +25,9 @@ const catering = () => {
                     <li>
                         Great for casual parties, corporate meetings, and weddings!
                     </li>
+                    <li className={classes.CateringBtn}>
+                        <button>Get Started Now</button>
+                    </li>
                 </ul>
             </div>
         </div>

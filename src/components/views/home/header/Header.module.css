@@ -56,3 +56,56 @@
 .Header button:hover {
     background-color: #451C1C;
 }
+
+@media(max-width: 850px) {
+    .Header h2, .Header h1, .Header span {
+        padding-left: 50px;
+    }
+
+    .Header button {
+        margin-left: 50px;
+    }
+}
+
+@media(max-width: 650px) {
+    .Header h1 {
+        font-size: 250%;
+    }
+
+    .Header h2 {
+        font-weight: 600;
+    }
+
+    .Header {
+        padding-top: 50px;
+    }  
+    
+    .Header span {
+        font-weight: 700;
+    }
+
+    .Header button {
+        background-color: #FFAD41;
+        padding: 15px 50px;
+        color: #fff;
+        font-size: 125%;
+        
+        margin-left: 50px;
+        margin-top: 50px;
+    }
+}
+
+@media(max-width: 420px) {
+    .Header h1 {
+        font-size: 180%;
+    }
+
+    .Header h2 {
+        font-size: 120%;
+        line-height: 1.3rem;
+    }
+
+    .Header {
+        padding-top: 50px;
+    }   
+}

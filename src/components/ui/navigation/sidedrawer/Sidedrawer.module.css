@@ -3,9 +3,9 @@
     top: 0;
     left: 0;
     height: 100vh;
-    width: 60%;
+    width: 40%;
     z-index: 1000;
-    background-color: rgb(241, 241, 241);
+    background-color: #F0EBE5;
     display: flex;
     flex-flow: column;
     text-align: center;
@@ -20,14 +20,14 @@
     padding-left: 0;
 }
 
-.Sidedrawer ul li a, .Sidedrawer ul li span {
+.Sidedrawer ul li a {
     text-decoration: none;
-    color: rgb(32 33 37);
+    color: #313131;
     font-weight: 500;
     font-size: 200%;
     transition: .4s;
 }
 
-.Sidedrawer ul li a:hover, .Sidedrawer ul li span:hover {
-    color: rgb(223 179 19);
+.Sidedrawer ul li a:hover {
+    color: #711616;
 }

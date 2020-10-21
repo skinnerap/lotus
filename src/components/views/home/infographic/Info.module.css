@@ -10,13 +10,13 @@
     display: flex;
     flex-flow: row;
     border: 1px solid #451C1C;
-    width: 33%;
+    width: 40%;
     color: #451C1C;
     margin: 20px;
 }
 
 .Box img {
-    height: 400px;
+    width: 50%;
 }
 
 .BoxText {
@@ -32,8 +32,7 @@
 }
 
 .BoxText h4 {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-bottom: 20px;
     margin: 0;
     line-height: 1.4rem;
     text-align: center;
@@ -58,10 +57,28 @@
     cursor: pointer;
     transition: .5s;
     border: 1px solid transparent;
+    margin-top: 40px;
 }
 
 .BoxText button:hover {
     color: #451C1C;
     background-color: #fff;
     border: 1px solid #451C1C;
+}
+
+@media(max-width: 1250px) {
+    .Info {
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .Box {
+        width: 60%;
+    }
+}
+
+@media(max-width: 850px) {
+    .Box {
+        width: 80%;
+    }
 }

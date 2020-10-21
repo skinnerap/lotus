@@ -28,3 +28,13 @@
     padding-right: 50px;
     width: 80px;
 }
+
+@media(max-width: 620px) {
+    .NavProfile span img {
+        width: 50px;
+    }
+
+    .Link, .Or {
+        display: none;
+    }
+}

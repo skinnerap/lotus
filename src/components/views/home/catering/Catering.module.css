@@ -19,8 +19,62 @@
     flex-flow: row;
 }
 
+.Box img {
+    width: 50%;
+    height: auto;
+}
+
 .Catering ul {
     line-height: 4rem;
     font-size: 110%;
     font-weight: 500;
+}
+
+.Catering .CateringBtn {
+    list-style: none;
+}
+
+.Catering .CateringBtn button {
+    background-color: #FFAD41;
+    color: #fff;
+    padding: 20px 40px;
+    font-size: 140%;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .5s;
+    border: 1px solid transparent;
+    margin-top: 10px;
+}
+
+.Catering .CateringBtn button:hover {
+    color: #451C1C;
+    background-color: #fff;
+    border: 1px solid #451C1C;
+}
+
+@media(max-width: 1200px) {
+    .Box {
+        flex-flow: column;
+    }
+
+    .Box img {
+        width: 100%;
+    }
+
+    .CateringBtn {
+        text-align: center;
+    }
+}
+
+@media(max-width: 650px) {
+    .Box img {
+        width: 70%;
+        margin: auto;
+    }
+
+    .Catering ul {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }

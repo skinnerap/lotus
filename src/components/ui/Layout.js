@@ -15,47 +15,152 @@ import Navbar from './navigation/navbar/Navbar';
 import Sidedrawer from './navigation/sidedrawer/Sidedrawer';
 import Footer from './navigation/footer/Footer';
 
+// Navigation Modals
+import LoginModal from '../ui/navigation/modals/login/Login';
+import AccountModal from '../ui/navigation/modals/account/Account';
+import CartModal from '../ui/navigation/modals/cart/Cart';
+
 // UX Helpers
 import Backdrop from './ux/backdrop/Backdrop';
 import Modal from './ux/modal/Modal';
 
-// CSS Styles
-import classes from './Layout.module.css';
-
 class Layout extends Component {
 
     state = {
+
         showSidedrawer: false,
-        showBackdrop: false
+        showBackdrop: false,
+        showLoginModal: false,
+        showAccountModal: false,
+        showCartModal: false
+
     }
 
+    // Tablet/Mobile View Only: Opens Navigation On Click of Hamburger Icon
     openSidedrawerHandler = () => {
+
         this.setState({showSidedrawer: true, showBackdrop: true});
+
     }
 
+    // Tablet/Mobile View Only: Closes Navigation On Click of Link OR Backdrop
     closeSidedrawerHandler = () => {
+
         this.setState({showSidedrawer: false, showBackdrop: false});
+
+    }
+
+    openLoginModalHandler = () => {
+
+        this.setState({showLoginModal: true, showBackdrop: true});
+
+    }
+
+    closeLoginModalHandler = () => {
+
+        this.setState({showLoginModal: false, showBackdrop: false});
+
+    }
+
+    openAccountModalHandler = () => {
+
+        this.setState({showAccountModal: true, showBackdrop: true});
+
+    }
+
+    closeAccountModalHandler = () => {
+
+        this.setState({showAccountModal: false, showBackdrop: false});
+
+    }
+
+    openCartModalHandler = () => {
+
+        this.setState({showCartModal: true, showBackdrop: true});
+
+    }
+
+    closeCartModalHandler = () => {
+
+        this.setState({showCartModal: false, showBackdrop: false});
+
     }
 
 
     render() {
+
         return (
+
             <Aux>
+
                 <Router>
-                    <Navbar clicked={this.openSidedrawerHandler} />
-                    <Sidedrawer show={this.state.showSidedrawer} />
-                    <Backdrop show={this.state.showBackdrop} clicked={this.closeSidedrawerHandler} />
+                    
+                    {/* NAVIGATION BAR: SHOWS ON ALL VIEWS */}
+                    <Navbar 
+                        clickedLogin={this.openLoginModalHandler} 
+                        clickedAccount={this.openAccountModalHandler} 
+                        clickedCart={this.openCartModalHandler}
+                        clicked={this.openSidedrawerHandler} 
+                    />
+                    
+                    {/* TABLET/MOBILE VIEW ONLY: SHOW NAVIGATION */}
+                    <Sidedrawer 
+                        show={this.state.showSidedrawer} 
+                    />
+
+                   {/* BACKDROP FOR SIDEDRAWER NAVIGATION */} 
+                    <Backdrop 
+                        show={this.state.showBackdrop} 
+                        clicked={this.closeSidedrawerHandler} 
+                    />
+
+                    {/* LOGIN INTO ACCOUNT */}
+                    <Modal 
+                        show={this.state.showLoginModal} 
+                        clicked={this.closeLoginModalHandler}
+                        clickedClose={this.closeLoginModalHandler}
+                    >
+                        <LoginModal />
+                    </Modal>
+
+                    {/* CREATE NEW ACCOUNT */}
+                    <Modal 
+                        show={this.state.showAccountModal} 
+                        clicked={this.closeAccountModalHandler}
+                    >
+                        <AccountModal />
+                    </Modal>
+
+                    {/* VIEW CART */}
+                    <Modal 
+                        show={this.state.showCartModal} 
+                        clicked={this.closeCartModalHandler}
+                    >
+                        <CartModal />
+                    </Modal>
+
                     <Switch>
                         <Route 
                             path="/"
                             exact
-                            component={Home}
+                            render={(props) => (
+                                <Home 
+                                    {...props}
+                                    clickedLogin={this.openLoginModalHandler} 
+                                    clickedAccount={this.openAccountModalHandler}
+                                /> 
+                            )} 
                         />
                     </Switch>
+
                     <Footer />
+
                 </Router>
+
             </Aux>
+
         )
+
     }
 
 }

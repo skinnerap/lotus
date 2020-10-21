@@ -71,7 +71,7 @@
 }
 
 .Navbar ul li a:enabled {
-    color: #931D48;
+    color: #711616;
 }
 
 .Navbar .logo {
@@ -87,9 +87,35 @@
 
 #ham {
     font-size: 200%;
+    color: #931D48;
 }
 
-@media(max-width: 1000px) {
+.CartContainer {
+    display: flex;
+}
+
+.OpenCart {
+    font-size: 60%;
+    font-weight: 500;
+    padding-left: 20px;
+}
+
+@media(max-width: 1250px) {
+    .Navbar ul li a {
+        font-size: 85%;
+        padding-left: 20px;
+    }
+}
+
+@media(max-width: 1150px) {
+    .Navbar ul li a {
+        font-size: 60%;
+        padding-left: 15px;
+    }
+}
+
+@media(max-width: 1020px) {
+
     .MobileOnly {
         display: block;
     }
@@ -97,9 +123,17 @@
     .DesktopOnly {
         display: none;
     }
+
+    .Navbar {
+        justify-content: center;
+    }
+
+    .Navbar span {
+        padding-right: 135px;
+    }
 }
 
-@media(max-width: 600px) {
+@media(max-width: 700px) {
     .Navbar .logo {
         font-size: 85%;
         letter-spacing: .1rem;
@@ -107,5 +141,15 @@
 
     .Navbar ul li span {
         padding-left: 0;
+    }
+
+    .Navbar {
+        padding-left: 50px;
+    }
+}
+
+@media(max-width: 580px) {
+    .Navbar span{
+        padding-right: 100px;
     }
 }

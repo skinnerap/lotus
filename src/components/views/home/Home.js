@@ -11,7 +11,11 @@ class Home extends Component{
         return (
             <div>
                 <Header />
-                <Subheader />
+                <Subheader 
+                    clickedLogin={this.props.clickedLogin} 
+                    clickedAccount={this.props.clickedAccount} 
+                    clickedClose={this.props.clickedClose}
+                    />
                 <Menu />
                 <Infographic />
                 <Catering />
