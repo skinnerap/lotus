@@ -1,0 +1,128 @@
+.Login {
+    display: flex;
+    width: 100%;
+    padding: 50px;
+    flex-flow: column;
+    justify-content: space-between;
+    background-color: #F0EBE5;
+    position: relative;
+    overflow-y: scroll;
+    max-height: 70vh;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #e6d1ac;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #451c1c41;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background:#2c121291;
+  }
+
+.Login h3 {
+    text-transform: uppercase;
+    color: #65522E;
+    font-size: 150%;
+}
+
+.Login img {
+    width: 100px;
+}
+
+.Login button {
+    width: 50%;
+    background-color: #451C1C;
+    color: rgb(228, 228, 228);
+    border: none;
+    padding: 20px;
+    align-self: center;
+    margin-bottom: 10px;
+    font-size: 100%;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+}
+
+.Login svg {
+    cursor: pointer;
+}
+
+.Login svg path {
+    transition: .5s;
+}
+
+.Login svg path:hover {
+    fill: #451C1C;
+}
+
+.Or {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 120%;
+}
+
+.Login .Account {
+    margin-top: 20px;
+    background-color: #65522E;
+}
+
+.Login .Forgot {
+    background-color: transparent;
+    border: none;
+    color: #451C1C;
+    font-weight: 700;
+}
+
+.Login input {
+    width: 50%;
+    align-self: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: 1px solid #451C1C;
+    font-size: 130%;
+    text-align: center;
+}
+
+.Login input::placeholder {
+    text-align: center;
+    font-size: 120%;
+    font-weight: 700;
+}
+
+.Login a {
+    text-decoration: none;
+    color: #65522E;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.TopLine {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Form {
+    padding: 10px;   
+    align-content: center;
+    justify-content: center;
+}
+
+
+div.Form {
+    display: flex;
+    flex-flow: column;
+}

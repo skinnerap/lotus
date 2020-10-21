@@ -50,7 +50,7 @@
     font-size: 120%;
 }
 
-.Login .Account {
+.Login .AccountButton {
     margin-top: 20px;
     background-color: #65522E;
 }
@@ -71,6 +71,7 @@
     background-color: transparent;
     border: 1px solid #451C1C;
     font-size: 130%;
+    text-align: center;
 }
 
 .Login input::placeholder {
@@ -101,4 +102,26 @@
 div.Form {
     display: flex;
     flex-flow: column;
+}
+
+.LoginButton, .AccountButton, .Forgot {
+    cursor: pointer;
+    transition: .5s;
+    border: 1px solid transparent;
+}
+
+.LoginButton:hover {
+    background-color: transparent;
+    border: 1px solid #451C1C;
+    color: #451C1C;
+}
+
+.AccountButton:hover {
+    background-color: transparent;
+    border: 1px solid #65522E;
+    color: #65522E;
+}
+
+.Forgot:hover {
+    color: #926e2c;
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import classes from './Login.module.css';
 import logo from '../../../../../assets/img/logo.png';
 
@@ -34,7 +33,7 @@ const login = ( props ) => {
 
                 <span className={classes.Or}>Or</span>
 
-                <button className={classes.Account}>
+                <button className={classes.AccountButton}>
                     Create Account
                 </button>
 
