@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import classes from './Menu.module.css';
 
 // Image Imports (One for each category of the menu)
@@ -11,12 +12,14 @@ import vegeterian from '../../../../assets/img/cutouts/vegeterian.png';
 import sides from '../../../../assets/img/cutouts/sides.png';
 import drinks from '../../../../assets/img/cutouts/drinks.png';
 
-const menu = () => {
+const menu = ( props ) => {
     return (
         <div className={classes.Menu}>
             <div>
-                <img src={noodles} alt="Try Chef Chen's Dragon Noodles today, or one of his other amazing noodle recipes!" />
-                <h3 className={classes.Title}>Noodle Dishes</h3>
+                <img src={noodles} alt="Try Chef Chen's Dragon Noodles today, or one of his other amazing noodle recipes!" />   
+                <NavLink to='/noodles'>
+                    <h3 className={classes.Title}>Noodle Dishes</h3>
+                </NavLink>
             </div>
             <div>
                 <img src={rice} alt="Try Chef Chen's Rice-Mazing today, or one of his other amazing recipes!" />

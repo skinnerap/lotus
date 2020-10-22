@@ -12,6 +12,7 @@ import fire from '../../config/auth/fire';
 
 // Views to Render
 import Home from '../views/home/Home';
+import Noodles from '../views/menu/noodles/Noodles';
 
 // Navigation
 import Navbar from './navigation/navbar/Navbar';
@@ -156,6 +157,11 @@ class Layout extends Component {
 
                     <Switch>
                         <Route 
+                            path="/noodles"
+                            exact
+                            component={Noodles}
+                        />
+                        <Route 
                             path="/"
                             exact
                             render={(props) => (
@@ -167,6 +173,7 @@ class Layout extends Component {
                                 /> 
                             )} 
                         />
+                        
                     </Switch>
 
                     <Footer />
