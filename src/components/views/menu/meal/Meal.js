@@ -8,7 +8,7 @@ const meal = ( props ) => {
             <h4>{props.name}</h4>
             <p>{props.description}</p>
             <div>
-                <span>{props.basePrice}</span>
+                <span>${props.basePrice}</span>
                 <span>
                     <select>
                         {props.upgrades.map(choice => {

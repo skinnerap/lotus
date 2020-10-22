@@ -16,14 +16,16 @@ const menu = ( props ) => {
     return (
         <div className={classes.Menu}>
             <div>
-                <img src={noodles} alt="Try Chef Chen's Dragon Noodles today, or one of his other amazing noodle recipes!" />   
                 <NavLink to='/noodles'>
+                    <img src={noodles} alt="Try Chef Chen's Dragon Noodles today, or one of his other amazing noodle recipes!" />
                     <h3 className={classes.Title}>Noodle Dishes</h3>
                 </NavLink>
             </div>
             <div>
-                <img src={rice} alt="Try Chef Chen's Rice-Mazing today, or one of his other amazing recipes!" />
-                <h3 className={classes.Title}>Rice Dishes</h3>
+                <NavLink to='/rice'>
+                    <img src={rice} alt="Try Chef Chen's Rice-Mazing today, or one of his other amazing recipes!" />
+                    <h3 className={classes.Title}>Rice Dishes</h3>
+                </NavLink>
             </div>
             <div>
                 <img src={bahnmi} alt="Try Chef Chen's Thai Spice Bahn-Mi today, or one of his other amazing recipes!" />

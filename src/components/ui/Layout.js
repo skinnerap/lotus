@@ -12,7 +12,7 @@ import fire from '../../config/auth/fire';
 
 // Views to Render
 import Home from '../views/home/Home';
-import Noodles from '../views/menu/noodles/Noodles';
+import MealCat from '../views/menu/mealCategories/MealCat';
 
 // Navigation
 import Navbar from './navigation/navbar/Navbar';
@@ -159,7 +159,22 @@ class Layout extends Component {
                         <Route 
                             path="/noodles"
                             exact
-                            component={Noodles}
+                            render={(props) => (
+                                <MealCat
+                                    {...props}
+                                    category='noodles'
+                                />
+                            )}
+                        />
+                        <Route 
+                            path="/rice"
+                            exact
+                            render={(props) => (
+                                <MealCat
+                                    {...props}
+                                    category='rice'
+                                />
+                            )}
                         />
                         <Route 
                             path="/"
