@@ -1,27 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Header from './header/Header';
+import Border from './border/Border';
 import Subheader from './subheader/Subheader';
 import Menu from './menu/Menu';
 import Infographic from './infographic/Info';
 import Catering from './catering/Catering';
 
-class Home extends Component{
+const home = ( props ) => {
 
-    render() {
-        return (
-            <div>
-                <Header />
-                <Subheader 
-                    clickedLogin={this.props.clickedLogin} 
-                    clickedAccount={this.props.clickedAccount} 
-                    clickedClose={this.props.clickedClose}
-                    />
-                <Menu />
-                <Infographic />
-                <Catering />
-            </div>
-        )
-    }
+    const showLoginAndRegister = props.user ? false : true;
+
+    return (
+        <div>
+            <Header />
+            <Border />
+            <Subheader 
+                clickedLogin={props.clickedLogin} 
+                clickedAccount={props.clickedAccount} 
+                clickedClose={props.clickedClose}
+                show={showLoginAndRegister}
+            />
+            <Menu />
+            <Infographic />
+            <Catering />
+        </div>
+    )
+
 }
 
-export default Home;
+export default home;

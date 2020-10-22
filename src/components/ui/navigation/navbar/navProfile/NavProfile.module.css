@@ -6,7 +6,7 @@
 
 .Link {
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .Link:hover {
@@ -27,6 +27,16 @@
 .NavProfile span img {
     padding-right: 50px;
     width: 80px;
+}
+
+.Logout {
+    cursor: pointer;
+    transition: .5s;
+    font-weight: 600;
+}
+
+.Logout:hover {
+    color: #6e1e13;
 }
 
 @media(max-width: 620px) {

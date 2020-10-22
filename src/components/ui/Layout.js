@@ -7,6 +7,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Helper Components
 import Aux from '../hoc/Auxi';
 
+// Auth Settings
+import fire from '../../config/auth/fire';
+
 // Views to Render
 import Home from '../views/home/Home';
 
@@ -32,8 +35,19 @@ class Layout extends Component {
         showBackdrop: false,
         showLoginModal: false,
         showAccountModal: false,
-        showCartModal: false
+        showCartModal: false,
+        user: null
 
+    }
+
+    componentDidMount() {
+        fire.auth().onAuthStateChanged((user) => {
+            if(user) {
+              this.setState({user: user})
+              console.log(user.uid);
+            }
+            else this.setState({user: null});
+        })
     }
 
     // Tablet/Mobile View Only: Opens Navigation On Click of Hamburger Icon
@@ -101,6 +115,7 @@ class Layout extends Component {
                         clickedAccount={this.openAccountModalHandler} 
                         clickedCart={this.openCartModalHandler}
                         clicked={this.openSidedrawerHandler} 
+                        user={this.state.user}
                     />
                     
                     {/* TABLET/MOBILE VIEW ONLY: SHOW NAVIGATION */}
@@ -148,6 +163,7 @@ class Layout extends Component {
                                     {...props}
                                     clickedLogin={this.openLoginModalHandler} 
                                     clickedAccount={this.openAccountModalHandler}
+                                    user={this.state.user}
                                 /> 
                             )} 
                         />
