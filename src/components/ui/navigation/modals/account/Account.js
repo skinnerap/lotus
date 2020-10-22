@@ -48,14 +48,17 @@ class Account extends Component {
         // SHOW SPINNER
 
         fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-        .then( user => {
+        .then( u => {
             console.log('logged in');
+            var user = fire.auth().currentUser;
+            console.log(u);
+            console.log(user)
             user.updateProfile({
-                displayName: this.state.firstName.toString(),
-                phoneNumber: this.state.phoneNumber.toString()
+                displayName: this.state.firstName.toString() + ' ' + this.state.lastName.toString(),
             }).then(function() {
                 // SUCCESS: NEW USER REGISTERED AND DETAILS UPDATED
                 // HIDE SPINNER
+                console.log(user.displayName);
             }).catch(function(error) {
                 // ERROR: NEW USER REGISTERED BUT DETAILS FAILED TO UPDATE
                 // HIDE SPINNER
