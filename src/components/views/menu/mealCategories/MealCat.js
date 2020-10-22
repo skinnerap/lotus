@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './MealCat.module.css'
-import logo from '../../../../assets/img/cutouts/noodles.png';
+import noodlesLogo from '../../../../assets/img/cutouts/noodles.png';
+import riceLogo from '../../../../assets/img/cutouts/rice.png';
+import vegeterianLogo from '../../../../assets/img/cutouts/vegeterian.png';
+import bahnmiLogo from '../../../../assets/img/cutouts/bahnmi.png';
+import sidesLogo from '../../../../assets/img/cutouts/sides.png';
+import drinksLogo from '../../../../assets/img/cutouts/drinks.png';
+import dessertLogo from '../../../../assets/img/cutouts/dessert.png';
+import soupLogo from '../../../../assets/img/cutouts/soups.png';
 import Meal from '../meal/Meal';
 import fire from '../../../../config/auth/fire';
 
@@ -36,6 +43,16 @@ class MealCat extends Component {
 
 
     render() {
+
+        let logo = null;
+        if(this.props.category === 'noodles') logo = noodlesLogo;
+        if(this.props.category === 'rice') logo = riceLogo;
+        if(this.props.category === 'bahnmi') logo = bahnmiLogo;
+        if(this.props.category === 'vegeterian') logo = vegeterianLogo;
+        if(this.props.category === 'sides') logo = sidesLogo;
+        if(this.props.category === 'soup') logo = soupLogo;
+        if(this.props.category === 'drinks') logo = drinksLogo;
+        if(this.props.category === 'dessert') logo = dessertLogo;
 
         const meals = this.state.menu ? 
             this.state.menu.map(item => (
