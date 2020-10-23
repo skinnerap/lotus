@@ -1,3 +1,77 @@
 .Meal {
     padding: 20px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.Meal h4 {
+    color: #711616;
+    font-size: 130%;
+    align-self: center;
+    margin-bottom: 15px;
+}
+
+.Meal p {
+    width: 70%;
+    text-indent: 7%;
+    line-height: 2rem;
+    align-self: center;
+    margin: 0;
+    color: #303030;
+}
+
+.Meal div {
+    align-self: center;
+    padding: 20px 0;
+}
+
+.Mod, .Add {
+    align-self: center;
+    width: fit-content;
+    min-width: 40%;
+    padding: 20px 0;
+    margin-bottom: 15px;
+    border: 2px solid transparent;
+    font-size: 130%;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: #fff;
+    font-weight: 700;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.Mod {
+    background-color: #FFAD41;
+}
+
+.Add {
+    background-color: #711616;
+}
+
+.Mod:hover {
+    background-color: transparent;
+    color: #FFAD41;
+    border: 2px solid #FFAD41;
+}
+
+.Add:hover {
+    background-color: transparent;
+    color: #711616;
+    border: 2px solid #711616;
+}
+
+.Price {
+    font-weight: 600;
+    padding-right: 20px;
+    color: #303030;
+}
+
+.Meal select {
+    padding: 10px;
+    padding-right: 15px;
+    border: 2px solid #711616;
+    color: #711616;
+    font-size: 110%;
 }

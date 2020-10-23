@@ -25,6 +25,11 @@
     transition: .5s;
 }
 
+.Menu a {
+    color: inherit;
+    text-decoration: none;
+}
+
 
 .Menu img:hover {
     transform: rotate(45deg);
