@@ -14,14 +14,11 @@ const cart = ( props ) => {
 
     if(numOfKeys > 0) Object.keys(sessionStorage).forEach(key => {
         if(key !== 'React::DevTools::lastSelection') {
-            items.push(sessionStorage.getItem(key));
+            items.push(JSON.parse(sessionStorage.getItem(key)));
         }   
     });
 
     console.log(items)
-    
-
-    console.log(numOfKeys)
 
     const cart = numOfKeys === 0 ? 
         <div>
@@ -40,11 +37,9 @@ const cart = ( props ) => {
                 Order Now
             </button>
         </div>
-         :  <div>
+         :  <div className={classes.Test}>
                 {items.map(item => (
-                    <div>
-                        <span>{item.name}</span>
-                    </div>
+                    <div></div>
                 ))}
             </div>
 
