@@ -1,4 +1,5 @@
 import React from 'react';
+import CartMeal from './cartMeal/CartMeal';
 import classes from './Cart.module.css';
 import logo from '../../../../../assets/img/logo.png';
 
@@ -37,9 +38,23 @@ const cart = ( props ) => {
                 Order Now
             </button>
         </div>
-         :  <div className={classes.Test}>
-                {items.map(item => (
-                    <div></div>
+         :  <div className={classes.CartContainer}>  
+                {items.map(item => (  
+                    <div className={classes.Cart}>
+                        <span className={classes.CartTitle}>Meal Name: </span><span className={classes.CartTitleRes}>{item[0]['userMealName']}</span>
+                        {item.map(i => (
+                            <div>
+                                <CartMeal 
+                                    name={i.name}
+                                    userMealName={i.userMealName}
+                                    mods={i.userMealMods}
+                                    upgrade={i.userMealUpgrade}
+                                    price={i.basePrice}
+                                    quantity={i.quantity}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 ))}
             </div>
 

@@ -6,6 +6,7 @@
     left: 15%;
     z-index: 1000;
     transition: .6s;
+    max-height: 80%;
 }
 
 @media(max-width: 900px) {

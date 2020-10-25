@@ -1,10 +1,10 @@
 .Login {
     display: flex;
     width: 100%;
-    padding: 50px;
     flex-flow: column;
     justify-content: space-between;
     background-color: #F0EBE5;
+    overflow-y: scroll;
 }
 
 .Login h3 {
@@ -99,12 +99,16 @@
 .TopLine {
     display: flex;
     justify-content: space-between;
+    padding: 50px;
 }
 
 .Form {
-    padding: 10px;   
+       
     align-content: center;
     justify-content: center;
+    width: 100%;
+    background-color: #fff;
+    
 }
 
 
@@ -140,6 +144,26 @@ div.Form {
     align-self: center;
 }
 
-.Test {
-    font-size: 50%;
+.Cart .CartTitle {
+    font-size: 160%;
+    font-weight: 600;
+    color: #711616;
+    padding-top: 50px;
+}
+
+.Cart {
+   padding-left: 55px;
+   padding-bottom: 30px;
+   padding-top: 20px;
+}
+
+.CartContainer {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    padding-top: 30px;
+}
+
+.CartTitleRes {
+    font-size: 160%;
 }
