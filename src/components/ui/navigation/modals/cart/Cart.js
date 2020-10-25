@@ -3,6 +3,52 @@ import classes from './Cart.module.css';
 import logo from '../../../../../assets/img/logo.png';
 
 const cart = ( props ) => {
+
+    let numOfKeys = 0;
+    Object.keys(sessionStorage).forEach(key => { 
+        if(key) numOfKeys++;
+        if(key === 'React::DevTools::lastSelection') numOfKeys--;
+    })
+
+    let items = [];
+
+    if(numOfKeys > 0) Object.keys(sessionStorage).forEach(key => {
+        if(key !== 'React::DevTools::lastSelection') {
+            items.push(sessionStorage.getItem(key));
+        }   
+    });
+
+    console.log(items)
+    
+
+    console.log(numOfKeys)
+
+    const cart = numOfKeys === 0 ? 
+        <div>
+            <ul className={classes.Meals}>
+                <li>
+                    Your Cart is Empty
+                </li>
+            </ul>
+
+            <p style={ props.user ? {display: 'none'} : {display: 'block'}}>
+                Add one of your favorite meals to your cart and enjoy the bold
+                flavors of Lotus: Asian House today!
+            </p>
+
+            <button style={ props.user ? {display: 'none'} : {display: 'block'}}>
+                Order Now
+            </button>
+        </div>
+         :  <div>
+                {items.map(item => (
+                    <div>
+                        <span>{item.name}</span>
+                    </div>
+                ))}
+            </div>
+
+
     return (
         <div className={classes.Login}>
 
@@ -19,20 +65,7 @@ const cart = ( props ) => {
 
             <div className={classes.Form}>
 
-                <ul className={classes.Meals}>
-                    <li>
-                        Your Cart is Empty
-                    </li>
-                </ul>
-
-                <p style={ props.user ? {display: 'none'} : {display: 'block'}}>
-                    Add one of your favorite meals to your cart and enjoy the bold
-                    flavors of Lotus: Asian House today!
-                </p>
-
-                <button style={ props.user ? {display: 'none'} : {display: 'block'}}>
-                    Order Now
-                </button>
+                {cart}
 
             </div>
             
