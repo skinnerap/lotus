@@ -11,6 +11,7 @@ import dessertLogo from '../../../../assets/img/cutouts/dessert.png';
 import soupLogo from '../../../../assets/img/cutouts/soups.png';
 import Meal from '../meal/Meal';
 import Modal from '../../../ui/ux/modal/Modal';
+import Aux from '../../../hoc/Auxi';
 import fire from '../../../../config/auth/fire';
 
 class MealCat extends Component {
@@ -18,8 +19,10 @@ class MealCat extends Component {
     state = {
         userMealName: null,
         userMealChoice: null,
+        userMealMods: null,
+        userMealUpgrade: null,
         showNameMealModal: false,
-        menu: null
+        menu: null,
     }
 
     
@@ -41,14 +44,80 @@ class MealCat extends Component {
             if(category === 'bahnmi') this.setState({menu: menu.bahnmi});
             
         }).catch(err => {
+
             console.log('Error: ' + err.toString());
+
         })
+
+
 
     }
 
-    addMealChoiceAndOpenModalHandler = ( mealName ) => {
+    compareMealUpgrade = ( userMealUpgrade, currentMealUpgrade ) => {
 
-        this.setState({showNameMealModal: true, userMealChoice: mealName});
+        if(userMealUpgrade === currentMealUpgrade) return true;
+        if(userMealUpgrade === '' && !currentMealUpgrade) return true;
+        return false;
+
+    }
+
+    compareMealMods = ( userMealMods, currentMealMods ) => {
+
+        console.log('COMPARE');
+        console.log(userMealMods)
+        console.log(currentMealMods)
+        if(userMealMods === undefined && currentMealMods === undefined) {
+            console.log('x')
+            return true;
+        } 
+        if(userMealMods === undefined && currentMealMods !== undefined) {
+            console.log('y')
+            return false;
+        } 
+        if(userMealMods !== undefined && currentMealMods === undefined) {
+            if(Object.keys(userMealMods).length === 0) {
+                console.log('z')
+                return true;
+            } 
+            console.log(userMealMods)
+            console.log('zz')
+            return false;
+        } 
+
+        if(Object.keys(userMealMods).length !== Object.keys(currentMealMods).length) return false;
+
+        for(let i in userMealMods) {
+
+            console.log(userMealMods[i]);
+
+            if(userMealMods[i] !== currentMealMods[i]) {
+                console.log('zzz')
+                return false;
+            }
+
+        }
+
+        console.log('zzzz')
+        return true;
+
+    }
+
+    addMealChoiceAndOpenModalHandler = ( mealName, mealMods, mealUpgrade ) => {
+
+        console.log('ADDMEALCHOICE');
+        console.log(mealName);
+        console.log(mealMods);
+        console.log(mealUpgrade);
+
+        if(!mealMods) mealMods = [];
+        if(!mealUpgrade) mealUpgrade = null;
+
+        this.setState({
+            showNameMealModal: true,
+            userMealChoice: mealName,
+            userMealMods: mealMods,
+            userMealUpgrade: mealUpgrade
+        });
 
     }
 
@@ -74,6 +143,8 @@ class MealCat extends Component {
         [...this.state.menu].forEach(item => {
 
             if(!item.hasOwnProperty('userMealName')) item.userMealName = '';
+            if(!item.hasOwnProperty('userMealUpgrade')) item.userMealUpgrade = '';
+            if(!item.hasOwnProperty('userMealMods')) item.userMealMods = {};
 
             if(item.name === this.state.userMealChoice) {
 
@@ -83,21 +154,32 @@ class MealCat extends Component {
 
                     for(let i of items) {
                         if(i.name === this.state.userMealChoice) {
-                            i.quantity++;
-                            sessionStorage.setItem(this.state.userMealName, JSON.stringify(items));
-                            this.closeNameMealModalHandler();
-                            return;
+                            this.compareMealUpgrade(i.userMealUpgrade, this.state.userMealUpgrade)
+                            if(this.compareMealMods(i.userMealMods, this.state.userMealMods)
+                                && this.compareMealUpgrade(i.userMealUpgrade, this.state.userMealUpgrade)) {
+                                console.log(i);
+                                i.quantity++;
+                                sessionStorage.setItem(this.state.userMealName, JSON.stringify(items));
+                                this.closeNameMealModalHandler();
+                                return;
+                            } 
                         }
-                    }
+                        console.log(i.userMods)
+                        console.log(this.state.userMealMods)
+                    }         
                     
                     item.userMealName = this.state.userMealName;
                     item.quantity = 1;
+                    this.state.userMealMods ? item.userMealMods = this.state.userMealMods : item.userMealMods = {};
+                    this.state.userMealUpgrade ? item.userMealUpgrade = this.state.userMealUpgrade : item.userMealUpgrade =  '';
                     items.push(item);
                     sessionStorage.setItem(this.state.userMealName, JSON.stringify(items));
                     
                 } else {
                     item.userMealName = this.state.userMealName;
                     item.quantity = 1;
+                    this.state.userMealMods ? item.userMealMods = this.state.userMealMods : item.userMealMods = {};
+                    this.state.userMealUpgrade ? item.userMealUpgrade = this.state.userMealUpgrade : item.userMealUpgrade =  '';
                     const itemArray = [item];
                     sessionStorage.setItem(this.state.userMealName, JSON.stringify(itemArray));
                 }  
@@ -114,12 +196,15 @@ class MealCat extends Component {
 
     }
 
+    closeModsModalHandler = () => {
+        this.setState({showModModal: false})
+    }
+
     inputNameMealHandler = (e) => {
 
         this.setState({userMealName: e.target.value});
 
     }
-
 
     render() {
 
@@ -157,17 +242,26 @@ class MealCat extends Component {
             logo = dessertLogo;
             catName = 'Desserts'
         }
-
-        const meals = this.state.menu ? 
-            this.state.menu.map(item => (
-                <Meal
-                    name={item.name}
-                    description={item.description}
-                    basePrice={item.basePrice}
-                    upgrades={item.upgrades}
-                    clickedAdd={(mealName) => this.addMealChoiceAndOpenModalHandler(mealName)}
-                />
-            )) : <p>Loading...</p>;
+        
+        const meals =  this.state.menu ? 
+                
+                this.state.menu.map(item => (
+                    <Aux key={item.name + Math.random()*5}>
+                        <Meal
+                            name={item.name}
+                            description={item.description}
+                            basePrice={item.basePrice}
+                            upgrades={item.upgrades}
+                            mods={item.mods}
+                            clickedAdd={(mealName, mealMods, mealUpgrade) => this.addMealChoiceAndOpenModalHandler(mealName, mealMods, mealUpgrade)}
+                            clickedModify={(mealName, mealMods) => this.addModMealChoiceAndOpenModalHandler(mealName, mealMods)}
+                            showModModal={this.state.showModsModal}
+                            closeModModal={this.closeModsModalHandler}
+                            submitModifiedOrder={(mealName, mealMods, mealUpgrade) => this.addMealChoiceAndOpenModalHandler(mealName, mealMods, mealUpgrade)}
+                        />
+                    </Aux>
+                )) : <p>Loading...</p>;
+            
 
         return (
             <div className={classes.Noodles}>

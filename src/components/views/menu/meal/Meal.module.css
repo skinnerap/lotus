@@ -64,14 +64,107 @@
 
 .Price {
     font-weight: 600;
+    font-size: 120%;
     padding-right: 20px;
     color: #303030;
 }
 
-.Meal select {
+.Meal select, .ModModal select {
     padding: 10px;
     padding-right: 15px;
     border: 2px solid #711616;
     color: #711616;
     font-size: 110%;
+}
+
+.ModModal select {
+    width: fit-content;
+    padding: 10px;
+    padding-right: 15px;
+    align-self: center;
+}
+
+.ModModal {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 100%;
+    border: 4px solid #711616;
+    background-color: #f1f0ee;
+}
+
+.ModContainer {
+    display: flex;
+    width: fit-content;
+    align-self: flex-end;
+    padding-right: 30%;
+}
+
+.ModForm {
+    display: flex;
+}
+
+.ModForm label {
+    padding-left: 40px;
+    font-size: 120%;
+    font-weight: 500;
+}
+  
+
+.ModModal p {
+    align-self: center;
+    font-size: 120%;
+    color: #711616;
+    padding: 0 20px;
+    font-weight: 500;
+}
+
+.ModName span {
+    font-size: 130%;
+    font-weight: 500;
+}
+
+.ModModal .ModsHeader {
+    align-self: center;
+    font-size: 160%;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    color: #711616;
+}
+
+.ModModal .ModsSubheader {
+    align-self: center;
+    font-size: 120%;
+    font-weight: 500;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+
+.ModModal button {
+    width: fit-content;
+    margin: auto;
+    padding: 20px 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px solid transparent;
+    color: #fff;
+    background-color: #711616;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.ModModal button:hover {
+    color: #711616;
+    background-color: transparent;
+    border: 2px solid #711616;
+}
+
+.Or {
+    align-self: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-bottom: 15px;
 }
