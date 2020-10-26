@@ -6,14 +6,7 @@ import logo from '../../../../../assets/img/logo.png';
 class Cart extends Component {
 
     state = {
-        
-    }
-
-    
-
-    componentDidMount = () => {
-        
-        
+        total: 0
     }
 
     removeItemHandler = ( key, id ) => {
@@ -37,6 +30,28 @@ class Cart extends Component {
     }
 
     getTotalPrice = ( ) => {
+
+        let total = 0;
+        const taxRate = 0.06;
+
+        Object.keys(sessionStorage).forEach(key => {
+            if(key !== 'React::DevTools::lastSelection') {
+                const arr = JSON.parse(sessionStorage.getItem(key));
+                arr.forEach(item => {
+                    total += item.basePrice * item.quantity;
+                    if(item.userMealUpgrade) {
+                        total += (+item.userMealUpgrade[1] * item.quantity);
+                    }
+                })
+            }
+        }) 
+
+        // Return Array: [Subtotal, TaxTotal, TotalWithTaxes]
+        this.setState({total: [total.toFixed(2), (total * taxRate).toFixed(2), (((total * 0.06) + total)).toFixed(2)]});
+
+    }
+
+    getInitialTotalPrice = ( ) => {
 
         let total = 0;
         const taxRate = 0.06;
@@ -113,15 +128,21 @@ class Cart extends Component {
                 </div>
                 <div className={classes.PayDiv}>
                     <span className={classes.CartTitleRes}>Subtotal:</span>
-                    <span style={{paddingLeft: '10px', paddingBottom: '20px'}}> ${this.getTotalPrice()[0]}</span>
+                    <span style={{paddingLeft: '10px', paddingBottom: '20px'}}>
+                        {this.state.total ? '$' + this.state.total[0] : '$' + this.getInitialTotalPrice()[0]}
+                    </span>
                 </div>
                 <div className={classes.PayDiv}>
                     <span className={classes.CartTitleRes}>Sales Tax:</span>
-                    <span style={{paddingLeft: '10px', paddingBottom: '20px'}}> ${this.getTotalPrice()[1]}</span>
+                    <span style={{paddingLeft: '10px', paddingBottom: '20px'}}>
+                        {this.state.total ? '$' + this.state.total[1] : '$' + this.getInitialTotalPrice()[1]}
+                    </span>
                 </div>
                 <div className={classes.PayDiv}>
                     <span className={classes.CartTitleRes}>Total:</span>
-                    <span style={{paddingLeft: '10px', paddingBottom: '20px'}}> ${this.getTotalPrice()[2]}</span>
+                    <span style={{paddingLeft: '10px', paddingBottom: '20px'}}>
+                        {this.state.total ? '$' + this.state.total[2] : '$' + this.getInitialTotalPrice()[2]}
+                    </span>
                 </div>
                 <div className={classes.PayDiv}>
                     <button className={classes.Pay}>Pay Now</button>
@@ -140,6 +161,7 @@ class Cart extends Component {
                                     quantity={i.quantity}
                                     id={i.id}
                                     clickedRemoveItem={(key, id) => this.removeItemHandler(key, id)}
+                                    changedMeal={this.getTotalPrice}
                                 />
                             </div>
                         ))}

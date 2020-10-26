@@ -31,6 +31,7 @@ const CartMeal = ( props ) => {
         })
         sessionStorage.setItem( mealName, JSON.stringify(obj));
         setQuantity(quantity + 1);
+        props.changedMeal();
     }
 
     const decrementQuantityHandler = ( mealName, id ) => {
@@ -47,6 +48,7 @@ const CartMeal = ( props ) => {
         })
         sessionStorage.setItem(mealName, JSON.stringify(obj));
         setQuantity(quantity - 1);
+        props.changedMeal();
     }
 
     // Sets Quantity to 0
@@ -64,6 +66,7 @@ const CartMeal = ( props ) => {
         })
         sessionStorage.setItem(mealName, JSON.stringify(obj));
         setQuantity(quantity - quantity);
+        props.changedMeal();
     }
    
     return (
