@@ -47,8 +47,14 @@ class Meal extends Component {
     }
 
     upgradeHandler = (e) => {
+        console.log(typeof e);
+        e.preventDefault();
+        
+        const str = e.target.value;
+        const arr = str.split(',');
+        
 
-        this.setState({upgrade: e.target.value})
+        this.setState({upgrade: arr})
 
     }
 
@@ -65,7 +71,7 @@ class Meal extends Component {
                             <select onChange={(e) => this.upgradeHandler(e)}>
                                 <option value="none">Add Protein</option>
                                 {this.props.upgrades.map((choice, index) => {
-                                    return <option value={choice.name} key={choice.name + index}>{choice.name} +${choice.price}</option>
+                                    return <option value={[choice.name, choice.price]} key={choice.name + index}>{choice.name} +${choice.price}</option>
                                 })}
                             </select>
                         </span>
@@ -104,7 +110,7 @@ class Meal extends Component {
                         <select onChange={(e) => this.upgradeHandler(e)}>
                             <option value='none'>Add Protein</option>
                             {this.props.upgrades.map((choice, index) => {
-                                return <option value={choice.name} key={choice.name + index}>{choice.name} +${choice.price}</option>
+                                return <option value={[choice.name, choice.price]} key={choice.name + index}>{choice.name} +${choice.price}</option>
                             })}
                         </select>
                         <button onClick={() => this.props.submitModifiedOrder(this.props.name, this.state.mods, this.state.upgrade)}>Add Customized Meal</button>

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CartMeal from './cartMeal/CartMeal';
 import classes from './Cart.module.css';
 import logo from '../../../../../assets/img/logo.png';
 
 const cart = ( props ) => {
+
+    
 
     const getTotalPrice = () => {
 
@@ -14,10 +16,10 @@ const cart = ( props ) => {
             if(key !== 'React::DevTools::lastSelection') {
                 const arr = JSON.parse(sessionStorage.getItem(key));
                 arr.forEach(item => {
-                    console.log(item.name + ' ' + item.basePrice)
                     total += item.basePrice * item.quantity;
-                    if(item.upgrade) {
-
+                    console.log(item.userMealUpgrade)
+                    if(item.userMealUpgrade) {
+                        total += (+item.userMealUpgrade[1] * item.quantity);
                     }
                 })
             }

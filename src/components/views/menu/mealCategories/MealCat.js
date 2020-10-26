@@ -55,8 +55,8 @@ class MealCat extends Component {
 
     compareMealUpgrade = ( userMealUpgrade, currentMealUpgrade ) => {
 
-        if(userMealUpgrade === currentMealUpgrade) return true;
-        if(userMealUpgrade === '' && !currentMealUpgrade) return true;
+        if(userMealUpgrade[0] === currentMealUpgrade[0]) return true;
+        if(userMealUpgrade[0] === '' && !currentMealUpgrade[0]) return true;
         return false;
 
     }

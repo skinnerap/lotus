@@ -3,7 +3,7 @@ import classes from './CartMeal.module.css';
 
 const CartMeal = ( props ) => {
 
-    const [quantity, incrementQuantity] = useState(props.quantity);
+    const [quantity, setQuantity] = useState(props.quantity);
     const price = props.price * quantity;
 
     let modArray = [];
@@ -29,7 +29,7 @@ const CartMeal = ( props ) => {
             }
         })
         sessionStorage.setItem( mealName, JSON.stringify(obj));
-        incrementQuantity(quantity + 1);
+        setQuantity(quantity + 1);
     }
 
     const decrementQuantityHandler = ( mealName, id ) => {
@@ -45,7 +45,7 @@ const CartMeal = ( props ) => {
             }
         })
         sessionStorage.setItem(mealName, JSON.stringify(obj));
-        incrementQuantity(quantity - 1);
+        setQuantity(quantity - 1);
     }
    
     return (
@@ -67,7 +67,7 @@ const CartMeal = ( props ) => {
                 
                 <div className={classes.CartDiv}>
                     <span className={classes.CartTitle}>Protein: </span><span className={classes.CartTitleRes2}>
-                        {props.upgrade ? props.upgrade : 'No Choice'}
+                        {props.upgrade ? props.upgrade[0] + ': +$' + (+props.upgrade[1]).toFixed(2) : 'No Choice'}
                     </span>
                 </div>
 
