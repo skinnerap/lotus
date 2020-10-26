@@ -38,9 +38,11 @@ class Cart extends Component {
             if(key !== 'React::DevTools::lastSelection') {
                 const arr = JSON.parse(sessionStorage.getItem(key));
                 arr.forEach(item => {
-                    total += item.basePrice * item.quantity;
-                    if(item.userMealUpgrade) {
-                        total += (+item.userMealUpgrade[1] * item.quantity);
+                    if(item !== null) {
+                        total += item.basePrice * item.quantity;
+                        if(item.userMealUpgrade) {
+                            total += (+item.userMealUpgrade[1] * item.quantity);
+                        }
                     }
                 })
             }
@@ -60,11 +62,13 @@ class Cart extends Component {
             if(key !== 'React::DevTools::lastSelection') {
                 const arr = JSON.parse(sessionStorage.getItem(key));
                 arr.forEach(item => {
-                    total += item.basePrice * item.quantity;
-                    if(item.userMealUpgrade) {
-                        total += (+item.userMealUpgrade[1] * item.quantity);
-                    }
-                })
+                    if(item !== null) {
+                        total += item.basePrice * item.quantity;
+                        if(item.userMealUpgrade) {
+                            total += (+item.userMealUpgrade[1] * item.quantity);
+                        }
+                    }   
+                })  
             }
         }) 
 
@@ -148,9 +152,11 @@ class Cart extends Component {
                     <button className={classes.Pay}>Pay Now</button>
                 </div>
                 {items.map(item => (  
+                    
                     <div className={classes.Cart}>
                         <span className={classes.CartTitle}>Meal Name: </span><span className={classes.CartTitleRes}>{item[0]['userMealName']}</span>
                         {item.map(i => (
+                            i !== null ?
                             <div>
                                 <CartMeal 
                                     name={i.name}
@@ -163,7 +169,7 @@ class Cart extends Component {
                                     clickedRemoveItem={(key, id) => this.removeItemHandler(key, id)}
                                     changedMeal={this.getTotalPrice}
                                 />
-                            </div>
+                            </div> : <div></div>
                         ))}
                     </div>
                 ))}

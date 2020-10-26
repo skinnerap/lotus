@@ -21,14 +21,16 @@ const CartMeal = ( props ) => {
         console.log(sessionStorage.getItem(mealName))
         const obj = JSON.parse(sessionStorage.getItem(mealName));
         Object.keys(obj).forEach(key => {
-            console.log(obj[key].id)
-            if(obj[key].id === id) {
-                console.log('KDSD')
-                console.log(obj[key].quantity)
-                obj[key].quantity++;
-                console.log(obj[key].quantity)
-            }
+            if(obj[key] !== null) {
+                if(obj[key].id === id) {
+                    console.log('KDSD')
+                    console.log(obj[key].quantity)
+                    obj[key].quantity++;
+                    console.log(obj[key].quantity)
+                }
+            }    
         })
+        
         sessionStorage.setItem( mealName, JSON.stringify(obj));
         setQuantity(quantity + 1);
         props.changedMeal();
@@ -38,12 +40,13 @@ const CartMeal = ( props ) => {
         console.log(sessionStorage.getItem(mealName))
         const obj = JSON.parse(sessionStorage.getItem(mealName));
         Object.keys(obj).forEach(key => {
-            console.log(obj[key].id)
-            if(obj[key].id === id) {
-                console.log('KDSD')
-                console.log(obj[key].quantity)
-                obj[key].quantity--;
-                console.log(obj[key].quantity)
+            if(obj[key] !== null) {
+                if(obj[key].id === id) {
+                    console.log('KDSD')
+                    console.log(obj[key].quantity)
+                    obj[key].quantity--;
+                    console.log(obj[key].quantity)
+                }
             }
         })
         sessionStorage.setItem(mealName, JSON.stringify(obj));
@@ -56,13 +59,15 @@ const CartMeal = ( props ) => {
         console.log(sessionStorage.getItem(mealName))
         const obj = JSON.parse(sessionStorage.getItem(mealName));
         Object.keys(obj).forEach(key => {
-            console.log(obj[key].id)
-            if(obj[key].id === id) {
-                console.log('KDSD')
-                console.log(obj[key].quantity)
-                obj[key].quantity = 0;
-                console.log(obj[key].quantity)
+            if(obj[key] !== null) {
+                if(obj[key].id === id) {
+                    console.log('KDSD')
+                    console.log(obj[key].quantity)
+                    obj[key].quantity = 0;
+                    console.log(obj[key].quantity)
+                }
             }
+            
         })
         sessionStorage.setItem(mealName, JSON.stringify(obj));
         setQuantity(quantity - quantity);
@@ -71,15 +76,26 @@ const CartMeal = ( props ) => {
 
     // Deletes meal from session storage
     const deleteMealHandler = ( mealName, id ) => {
-        console.log(sessionStorage.getItem(mealName))
+        console.log(JSON.parse(sessionStorage.getItem(mealName)))
         const obj = JSON.parse(sessionStorage.getItem(mealName));
-        Object.keys(obj).forEach(key => {
-            console.log(obj[key].id)
-            if(obj[key].id === id) {
-                delete obj[key];
-            }
+        let indexToSplice = null;
+
+        Object.keys(obj).forEach((key, index) => {
+            if(obj[key] !== null) {
+                if(obj[key].id === id) {
+                    indexToSplice = index;
+                }
+            } 
         })
-        sessionStorage.setItem(mealName, JSON.stringify(obj));
+
+        // Removes deleted item from array
+        obj.splice(indexToSplice, 1);
+        if(obj.length > 0) {
+            sessionStorage.setItem(mealName, JSON.stringify(obj));
+        } else {
+            sessionStorage.removeItem(mealName);
+        }
+        
         setQuantity(quantity - quantity);
         props.changedMeal();
     }
