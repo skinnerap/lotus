@@ -90,6 +90,7 @@ const cart = ( props ) => {
                                     upgrade={i.userMealUpgrade}
                                     price={i.basePrice}
                                     quantity={i.quantity}
+                                    id={i.id}
                                 />
                             </div>
                         ))}
