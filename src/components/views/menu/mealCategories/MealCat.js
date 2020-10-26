@@ -154,24 +154,29 @@ class MealCat extends Component {
 
                     for(let i of items) {
                         if(i.name === this.state.userMealChoice) {
-                            this.compareMealUpgrade(i.userMealUpgrade, this.state.userMealUpgrade)
                             if(this.compareMealMods(i.userMealMods, this.state.userMealMods)
                                 && this.compareMealUpgrade(i.userMealUpgrade, this.state.userMealUpgrade)) {
                                 console.log(i);
                                 i.quantity++;
+                                i.id = i.userMealName + '-' + i.name + '-' + i.userMealUpgrade + '-';
+                                Object.keys(i.userMealMods).forEach(key => {
+                                    i.id += '-' + key + ':' + i.userMealMods[key];
+                                })
                                 sessionStorage.setItem(this.state.userMealName, JSON.stringify(items));
                                 this.closeNameMealModalHandler();
                                 return;
                             } 
                         }
-                        console.log(i.userMods)
-                        console.log(this.state.userMealMods)
                     }         
                     
                     item.userMealName = this.state.userMealName;
                     item.quantity = 1;
                     this.state.userMealMods ? item.userMealMods = this.state.userMealMods : item.userMealMods = {};
                     this.state.userMealUpgrade ? item.userMealUpgrade = this.state.userMealUpgrade : item.userMealUpgrade =  '';
+                    item.id = item.userMealName + '-' + item.name + '-' + item.userMealUpgrade + '-';
+                    Object.keys(item.userMealMods).forEach(key => {
+                        item.id += '-' + key + ':' + item.userMealMods[key];
+                    })
                     items.push(item);
                     sessionStorage.setItem(this.state.userMealName, JSON.stringify(items));
                     
@@ -180,6 +185,10 @@ class MealCat extends Component {
                     item.quantity = 1;
                     this.state.userMealMods ? item.userMealMods = this.state.userMealMods : item.userMealMods = {};
                     this.state.userMealUpgrade ? item.userMealUpgrade = this.state.userMealUpgrade : item.userMealUpgrade =  '';
+                    item.id = item.userMealName + '-' + item.name + '-' + item.userMealUpgrade + '-';
+                    Object.keys(item.userMealMods).forEach(key => {
+                        item.id += '-' + key + ':' + item.userMealMods[key];
+                    })
                     const itemArray = [item];
                     sessionStorage.setItem(this.state.userMealName, JSON.stringify(itemArray));
                 }  

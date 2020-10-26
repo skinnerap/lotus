@@ -7,6 +7,26 @@
     overflow-y: scroll;
 }
 
+/* width */
+.Login::-webkit-scrollbar {
+    width: 20px;
+}
+  
+  /* Track */
+.Login::-webkit-scrollbar-track {
+    background: #e6d1ac;
+}
+  
+  /* Handle */
+.Login::-webkit-scrollbar-thumb {
+    background: #451c1c41;
+}
+  
+  /* Handle on hover */
+.Login::-webkit-scrollbar-thumb:hover {
+    background:#2c121291;
+}
+
 .Login h3 {
     text-transform: uppercase;
     color: #65522E;
@@ -107,8 +127,8 @@
     align-content: center;
     justify-content: center;
     width: 100%;
-    background-color: #fff;
-    
+    background-color: rgb(236, 236, 236);
+    border-top: 2px solid #c2c2c2;
 }
 
 
@@ -145,7 +165,7 @@ div.Form {
 }
 
 .Cart .CartTitle {
-    font-size: 160%;
+    font-size: 110%;
     font-weight: 600;
     color: #711616;
     padding-top: 50px;
@@ -153,8 +173,9 @@ div.Form {
 
 .Cart {
    padding-left: 55px;
-   padding-bottom: 30px;
-   padding-top: 20px;
+   padding-right: 55px;
+   padding-top: 40px;
+   border-bottom: 2px solid #65522E;
 }
 
 .CartContainer {
@@ -165,5 +186,38 @@ div.Form {
 }
 
 .CartTitleRes {
+    font-size: 100%;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    padding-left: 5px;
+}
+
+.PayDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.PayDiv .Pay {
+    align-self: center;
+    background-color: #711616;
+    color: #fff;
+    cursor: pointer;
+    transition: .5s;
+    border: none;
+    width: 100%;
+    margin: 0;
+    padding: 40px 0;
+}
+
+.PayDiv .Pay:hover {
+    background-color: #65522E;
+}
+
+.CartContainer .Summary {
     font-size: 160%;
+    font-weight: 500;
+    color: #65522E;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    padding: 20px 0;
 }

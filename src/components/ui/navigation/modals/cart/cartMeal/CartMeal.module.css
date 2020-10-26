@@ -2,17 +2,21 @@
     width: 100%;
     padding-bottom: 10px;
     padding-left: 50px;
-    padding-top: 10px;
+    padding-top: 30px;
 }
 
 .CartTitle {
-    font-size: 140%;
+    font-size: 100%;
     font-weight: 600;
     color: #711616;
 }
 
+.CartDiv .QuantityBtn {
+    vertical-align: sub;
+}
+
 .CartTitleRes {
-    font-size: 120%;
+    font-size: 100%;
     font-weight: 500;
     padding-right: 30px;
 }
@@ -25,4 +29,31 @@
     margin-left: 10px;
     margin-right: 10px;
     border: 1px solid #711616;
+}
+
+.CartTitleRes3 {
+    font-size: 100%;
+    font-weight: 500;
+    padding: 0 10px;
+}
+
+.CartDiv {
+    padding-bottom: 20px;
+}
+
+.CartDiv .CartBtn {
+    background-color: transparent;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: .5s;
+    width: fit-content;
+    padding: 10px 20px;
+    color: #65522E;
+
+}
+
+.CartDiv .CartBtn:hover {
+    color: #b82e24;
+    background-color: transparent;
+    border: 2px solid #b82e24;
 }

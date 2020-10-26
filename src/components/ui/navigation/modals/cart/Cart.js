@@ -5,6 +5,29 @@ import logo from '../../../../../assets/img/logo.png';
 
 const cart = ( props ) => {
 
+    const getTotalPrice = () => {
+
+        let total = 0;
+        const taxRate = 0.06;
+
+        Object.keys(sessionStorage).forEach(key => {
+            if(key !== 'React::DevTools::lastSelection') {
+                const arr = JSON.parse(sessionStorage.getItem(key));
+                arr.forEach(item => {
+                    console.log(item.name + ' ' + item.basePrice)
+                    total += item.basePrice * item.quantity;
+                    if(item.upgrade) {
+
+                    }
+                })
+            }
+        }) 
+
+        // Return Array: [Subtotal, TaxTotal, TotalWithTaxes]
+        return [total.toFixed(2), (total * taxRate).toFixed(2), (((total * 0.06) + total)).toFixed(2)];
+
+    }
+
     let numOfKeys = 0;
     Object.keys(sessionStorage).forEach(key => { 
         if(key) numOfKeys++;
@@ -18,8 +41,6 @@ const cart = ( props ) => {
             items.push(JSON.parse(sessionStorage.getItem(key)));
         }   
     });
-
-    console.log(items)
 
     const cart = numOfKeys === 0 ? 
         <div>
@@ -39,6 +60,24 @@ const cart = ( props ) => {
             </button>
         </div>
          :  <div className={classes.CartContainer}>  
+                <div className={classes.PayDiv}>
+                    <span className={classes.Summary}>Order Summary</span>  
+                </div>
+                <div className={classes.PayDiv}>
+                    <span className={classes.CartTitleRes}>Subtotal:</span>
+                    <span style={{paddingLeft: '10px', paddingBottom: '20px'}}> ${getTotalPrice()[0]}</span>
+                </div>
+                <div className={classes.PayDiv}>
+                    <span className={classes.CartTitleRes}>Sales Tax:</span>
+                    <span style={{paddingLeft: '10px', paddingBottom: '20px'}}> ${getTotalPrice()[1]}</span>
+                </div>
+                <div className={classes.PayDiv}>
+                    <span className={classes.CartTitleRes}>Total:</span>
+                    <span style={{paddingLeft: '10px', paddingBottom: '20px'}}> ${getTotalPrice()[2]}</span>
+                </div>
+                <div className={classes.PayDiv}>
+                    <button className={classes.Pay}>Pay Now</button>
+                </div>
                 {items.map(item => (  
                     <div className={classes.Cart}>
                         <span className={classes.CartTitle}>Meal Name: </span><span className={classes.CartTitleRes}>{item[0]['userMealName']}</span>
@@ -56,6 +95,9 @@ const cart = ( props ) => {
                         ))}
                     </div>
                 ))}
+                <div className={classes.PayDiv}>
+                    <button className={classes.Pay}>Pay Now</button>
+                </div>
             </div>
 
 
