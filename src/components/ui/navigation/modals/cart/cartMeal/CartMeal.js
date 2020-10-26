@@ -4,7 +4,8 @@ import classes from './CartMeal.module.css';
 const CartMeal = ( props ) => {
 
     const [quantity, setQuantity] = useState(props.quantity);
-    const price = props.price * quantity;
+    const price = props.price * quantity + ( props.upgrade ? +props.upgrade[1] * quantity : 0);
+    const showMeal = quantity > 0 ? true : false;
 
     let modArray = [];
     // Converts Non-Empty userMealMods from Object into Array
@@ -47,8 +48,27 @@ const CartMeal = ( props ) => {
         sessionStorage.setItem(mealName, JSON.stringify(obj));
         setQuantity(quantity - 1);
     }
+
+    // Sets Quantity to 0
+    const removeQuantityHandler = ( mealName, id ) => {
+        console.log(sessionStorage.getItem(mealName))
+        const obj = JSON.parse(sessionStorage.getItem(mealName));
+        Object.keys(obj).forEach(key => {
+            console.log(obj[key].id)
+            if(obj[key].id === id) {
+                console.log('KDSD')
+                console.log(obj[key].quantity)
+                obj[key].quantity = 0;
+                console.log(obj[key].quantity)
+            }
+        })
+        sessionStorage.setItem(mealName, JSON.stringify(obj));
+        setQuantity(quantity - quantity);
+    }
    
     return (
+        
+        showMeal ? 
         <div className={classes.Cart}>
                 <div className={classes.CartDiv}>
                     <span className={classes.CartTitle}>Item: </span><span className={classes.CartTitleRes}>{props.name}</span>
@@ -82,11 +102,14 @@ const CartMeal = ( props ) => {
                       : <span className={classes.CartTitleRes2}>None</span>}  
                 </div>
                 <div className={classes.CartDiv}>
-                    <button className={classes.CartBtn}>
+                    <button onClick={() => removeQuantityHandler(props.userMealName, props.id)} className={classes.CartBtn}>
                         Remove Item
                     </button>
                 </div>
-        </div>
+        </div> : <div>
+                    <span style={{fontWeight: '600', paddingLeft: '20px', paddingRight: '20px'}}>This meal was removed</span>
+                    <button style={{backgroundColor: 'none'}} onClick={() => incrementQuantityHandler(props.userMealName, props.id)}>Bring it Back?</button>
+                </div>
     )
 }
 
