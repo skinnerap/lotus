@@ -68,6 +68,21 @@ const CartMeal = ( props ) => {
         setQuantity(quantity - quantity);
         props.changedMeal();
     }
+
+    // Deletes meal from session storage
+    const deleteMealHandler = ( mealName, id ) => {
+        console.log(sessionStorage.getItem(mealName))
+        const obj = JSON.parse(sessionStorage.getItem(mealName));
+        Object.keys(obj).forEach(key => {
+            console.log(obj[key].id)
+            if(obj[key].id === id) {
+                delete obj[key];
+            }
+        })
+        sessionStorage.setItem(mealName, JSON.stringify(obj));
+        setQuantity(quantity - quantity);
+        props.changedMeal();
+    }
    
     return (
         
@@ -111,7 +126,19 @@ const CartMeal = ( props ) => {
                 </div>
         </div> : <div>
                     <span style={{fontWeight: '600', paddingLeft: '20px', paddingRight: '20px'}}>This meal was removed</span>
-                    <button style={{backgroundColor: 'none'}} onClick={() => incrementQuantityHandler(props.userMealName, props.id)}>Bring it Back?</button>
+                    <button 
+                         
+                        onClick={() => incrementQuantityHandler(props.userMealName, props.id)}
+                    >
+                        Bring it Back?
+                    </button>
+                    <button
+                    
+                        onClick={() => deleteMealHandler(props.userMealName, props.id)}
+                    >
+                        Delete Meal
+                    </button>
+
                 </div>
     )
 }
