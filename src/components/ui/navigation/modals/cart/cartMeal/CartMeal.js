@@ -97,7 +97,8 @@ const CartMeal = ( props ) => {
             sessionStorage.removeItem(mealName);
         }
         
-        setQuantity(quantity - quantity);
+        // Sets Quantity's State back to 1
+        setQuantity(quantity - (quantity - 1));
         props.changedMeal();
     }
    
