@@ -7,6 +7,7 @@ const CartMeal = ( props ) => {
     const price = props.price * quantity + ( props.upgrade ? +props.upgrade[1] * quantity : 0);
     const showMeal = quantity > 0 ? true : false;
 
+
     let modArray = [];
     // Converts Non-Empty userMealMods from Object into Array
     if(props.mods !== []) {

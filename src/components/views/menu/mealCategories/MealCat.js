@@ -200,6 +200,7 @@ class MealCat extends Component {
             }
         });
 
+        this.props.updatedCart();
         this.closeNameMealModalHandler();
 
     }

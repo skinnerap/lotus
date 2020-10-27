@@ -37,6 +37,7 @@ class Layout extends Component {
         showLoginModal: false,
         showAccountModal: false,
         showCartModal: false,
+        updatedCart: false,
         user: null
 
     }
@@ -49,6 +50,18 @@ class Layout extends Component {
             }
             else this.setState({user: null});
         })
+    }
+
+    updateCartHandler = () => {
+
+        this.setState({updatedCart: true});
+
+    }
+
+    completedUpdateHandler = () => {
+
+        this.setState({updatedCart: false});
+
     }
 
     // Tablet/Mobile View Only: Opens Navigation On Click of Hamburger Icon
@@ -154,6 +167,8 @@ class Layout extends Component {
                     >
                         <CartModal 
                             user={this.state.user}
+                            updated={this.state.updatedCart}
+                            completedUpdate={this.completedUpdateHandler}
                         />
                     </Modal>
 
@@ -165,6 +180,7 @@ class Layout extends Component {
                                 <MealCat
                                     {...props}
                                     category='noodles'
+                                    updatedCart={this.updateCartHandler}
                                 />
                             )}
                         />
@@ -175,6 +191,7 @@ class Layout extends Component {
                                 <MealCat
                                     {...props}
                                     category='rice'
+                                    updatedCart={this.updateCartHandler}
                                 />
                             )}
                         />

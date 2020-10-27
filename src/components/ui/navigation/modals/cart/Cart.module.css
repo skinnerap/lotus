@@ -212,6 +212,11 @@ div.Form {
     transition: .5s;
 }
 
+.EmptyCart .EmptyPitchMsg {
+    color: #711616;
+    
+}
+
 .Cart .CartTitle {
     font-size: 110%;
     font-weight: 600;

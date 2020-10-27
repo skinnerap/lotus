@@ -50,6 +50,7 @@ class Cart extends Component {
 
         // Return Array: [Subtotal, TaxTotal, TotalWithTaxes]
         this.setState({total: [total.toFixed(2), (total * taxRate).toFixed(2), (((total * 0.06) + total)).toFixed(2)]});
+        this.props.completedUpdate();
 
     }
 
@@ -82,6 +83,10 @@ class Cart extends Component {
     
 
     render() {
+
+        if(this.props.updated) {
+            this.getTotalPrice();
+        }
 
         const x = Object.keys(sessionStorage).forEach(key => {
             console.log(key)
@@ -127,7 +132,7 @@ class Cart extends Component {
                     Re-Order Your Favorites
                 </button> : 
                 <div className={classes.EmptyGuestBtns}>
-                    <p>Accounts allow you to earn rewards, easily reorder items you previously ordered, and save your settings</p>
+                    <p className={classes.EmptyPitchMsg}>Accounts allow you to earn rewards, easily reorder items you previously ordered, and save your settings</p>
                     <button className={classes.EmptyGuestLoginBtn}>
                         Login
                     </button>
