@@ -280,13 +280,15 @@ class MealCat extends Component {
         return (
             <div className={classes.Noodles}>
                 <Modal show={this.state.showNameMealModal} clicked={this.closeNameMealModalHandler}>
-                    <h6>Name This Meal:</h6>
-                    <input 
-                        type='text' 
-                        placeholder='Example - Bobs Meal'
-                        onChange={(e) => this.inputNameMealHandler(e)}
-                    />
-                    <button onClick={this.addMealHandler}>Submit</button>
+                    <div className={classes.NameMeal}>
+                        <h6>Name This Meal</h6>
+                        <input 
+                            type='text' 
+                            placeholder='Example: Bobs Meal'
+                            onChange={(e) => this.inputNameMealHandler(e)}
+                        />
+                        <button onClick={this.addMealHandler}>Submit</button>
+                    </div>
                 </Modal>
                 <img src={logo} alt='Enjoy your favorite noodle dish today with a Coke!' />
                 <h1>{catName}</h1>

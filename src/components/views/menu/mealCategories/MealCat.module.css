@@ -43,3 +43,48 @@
     padding: 50px;
 }
 
+.NameMeal {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    justify-content: center;
+    align-self: center;
+}
+
+.NameMeal h6 {
+    align-self: center;
+    font-size: 140%;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    word-spacing: .2rem;
+    margin: 30px 0;
+}
+
+.NameMeal input {
+    align-self: center;
+    width: 50%;
+    font-size: 120%;
+    font-weight: 600;
+    margin-bottom: 50px;
+    padding: 20px 5px;
+    border: 2px solid #FFAD41;
+    background-color: transparent;
+}
+
+.NameMeal button {
+    border: none;
+    background-color: #711616;
+    padding: 30px 0;
+    color: #fff;
+    font-weight: 500;
+    font-size: 150%;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.NameMeal button:hover {
+    background-color: #FFAD41;
+}
