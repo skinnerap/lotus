@@ -152,7 +152,9 @@ class Layout extends Component {
                         show={this.state.showCartModal} 
                         clicked={this.closeCartModalHandler}
                     >
-                        <CartModal />
+                        <CartModal 
+                            user={this.state.user}
+                        />
                     </Modal>
 
                     <Switch>

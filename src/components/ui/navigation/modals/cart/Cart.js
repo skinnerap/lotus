@@ -110,23 +110,35 @@ class Cart extends Component {
        
 
         const cart = items.length === 0 ? 
-        <div>
-            <ul className={classes.Meals}>
-                <li>
+        <div className={classes.EmptyCart}>
+            <span className={classes.EmptyMsg}>
                     Your Cart is Empty
-                </li>
-            </ul>
-
-            <p style={ this.props.user ? {display: 'none'} : {display: 'block'}}>
+            </span>
+            <p>
                 Add one of your favorite meals to your cart and enjoy the bold
                 flavors of Lotus: Asian House today!
             </p>
 
-            <button style={ this.props.user ? {display: 'none'} : {display: 'block'}}>
+            <button className={classes.EmptyBtn}>
                 Order Now
             </button>
+            {this.props.user ? 
+                <button className={classes.EmptyUserReorderBtn}>
+                    Re-Order Your Favorites
+                </button> : 
+                <div className={classes.EmptyGuestBtns}>
+                    <p>Accounts allow you to earn rewards, easily reorder items you previously ordered, and save your settings</p>
+                    <button className={classes.EmptyGuestLoginBtn}>
+                        Login
+                    </button>
+                    <span className={classes.Or}>Or</span>
+                    <button className={classes.EmptyGuestRegisterBtn}>
+                        Create Account
+                    </button>
+                </div>
+            }
         </div>
-         :  <div className={classes.CartContainer}>  
+         :  <div className={classes.CartContainer}> 
                 <div className={classes.PayDiv}>
                     <span className={classes.Summary}>Order Summary</span>  
                 </div>
@@ -148,9 +160,7 @@ class Cart extends Component {
                         {this.state.total ? '$' + this.state.total[2] : '$' + this.getInitialTotalPrice()[2]}
                     </span>
                 </div>
-                <div className={classes.PayDiv}>
-                    <button className={classes.Pay}>Pay Now</button>
-                </div>
+                
                 {items.map(item => (  
                     
                     <div className={classes.Cart}>

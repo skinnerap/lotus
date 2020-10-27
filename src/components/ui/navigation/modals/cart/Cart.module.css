@@ -49,6 +49,16 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .1rem;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.EmptyCart .EmptyBtn {
+    padding: 20px 60px;
+}
+
+.EmptyCart .EmptyBtn:hover {
+    background-color: #65522E;
 }
 
 .Login svg {
@@ -68,6 +78,8 @@
     text-transform: uppercase;
     font-weight: 600;
     font-size: 120%;
+    padding-bottom: 20px;
+    padding-top: 10px;
 }
 
 .Login .AccountButton {
@@ -101,9 +113,11 @@
 }
 
 .Login p {
-    width: 50%;
+    width: 80%;
+    text-align: center;
     align-self: center;
-    font-size: 150%;
+    font-size: 100%;
+    font-weight: 600;
     line-height: 3rem;
     font-style: italic;
     font-weight: 600;
@@ -159,9 +173,43 @@ div.Form {
     color: #926e2c;
 }
 
-.Meals {
-    list-style: none;
+.EmptyMsg {
     align-self: center;
+    color: #65522E;
+    font-size: 140%;
+}
+
+.EmptyCart .EmptyUserReorderBtn {
+    background-color: #65522E;
+}
+
+.EmptyCart .EmptyUserReorderBtn:hover {
+    background-color: #451C1C;
+}
+
+.EmptyCart .EmptyGuestLoginBtn {
+    background-color: #65522E;
+}
+
+.EmptyCart .EmptyGuestLoginBtn:hover {
+    background-color: #451C1C;
+}
+
+.EmptyCart .EmptyGuestRegisterBtn:hover {
+    background-color: #65522E;
+}
+
+.EmptyCart .EmptyGuestBtns {
+    align-self: center;
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.EmptyCart .EmptyGuestBtns button {
+    cursor: pointer;
+    transition: .5s;
 }
 
 .Cart .CartTitle {
@@ -175,7 +223,15 @@ div.Form {
    padding-left: 55px;
    padding-right: 55px;
    padding-top: 40px;
+   padding-bottom: 50px;
    border-bottom: 2px solid #65522E;
+}
+
+.EmptyCart {
+    display: flex;
+    flex-flow: column;
+    align-self: center;
+    padding: 40px 0;
 }
 
 .CartContainer {
@@ -207,6 +263,10 @@ div.Form {
     width: 100%;
     margin: 0;
     padding: 40px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 20px 0;
 }
 
 .PayDiv .Pay:hover {
