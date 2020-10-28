@@ -29,6 +29,7 @@
     margin-left: 10px;
     margin-right: 10px;
     border: 1px solid #711616;
+    line-height: 2.5rem;
 }
 
 .CartTitleRes3 {
@@ -56,4 +57,38 @@
     color: #b82e24;
     background-color: transparent;
     border: 2px solid #b82e24;
+}
+
+.ItemRemovedConfirmation .BringBackBtn, .ItemRemovedConfirmation .DeleteMealBtn {
+    cursor: pointer;
+    transition: .5s;
+    background-color: transparent;
+    width: fit-content;
+    border: 2px solid transparent;
+    padding: 10px 20px;
+}
+
+.ItemRemovedConfirmation .DeleteMealBtn {
+    color: #b82e24;
+}
+
+.ItemRemovedConfirmation .BringBackBtn {
+    color: #B4891C;
+}
+
+.ItemRemovedConfirmation .BringBackBtn:hover {
+    border: 2px solid #B4891C;
+}
+
+.ItemRemovedConfirmation .DeleteMealBtn:hover {
+    border: 2px solid #b82e24;
+}
+
+.ItemRemovedConfirmation .MealRemovedMsg {
+    font-weight: 600;
+    color: rgb(114, 114, 114);
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    font-size: 110%;
+    padding: 0 20px;
 }

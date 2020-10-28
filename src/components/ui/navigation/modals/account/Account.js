@@ -68,6 +68,8 @@ class Account extends Component {
             // HIDE SPINNER
             console.log('Error: ' + err.toString());
         })
+
+        this.props.closeModal();
             
     }
 
@@ -108,13 +110,13 @@ class Account extends Component {
                         onChange={(e) => this.emailInputHandler(e)}
                     />
                     <input 
-                        type='text' 
+                        type='password' 
                         name="password" 
                         placeholder='Password' 
                         onChange={(e) => this.passwordInputHandler(e)}
                     />
                     <input 
-                        type='text' 
+                        type='password' 
                         name="passwordConfirmation" 
                         placeholder='Confirm Password' 
                         onChange={(e) => this.passwordConfirmInputHandler(e)}

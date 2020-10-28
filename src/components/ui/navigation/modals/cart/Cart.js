@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { HashLink as Link } from 'react-router-hash-link';
 import CartMeal from './cartMeal/CartMeal';
 import classes from './Cart.module.css';
 import logo from '../../../../../assets/img/logo.png';
@@ -32,7 +33,7 @@ class Cart extends Component {
     getTotalPrice = ( ) => {
 
         let total = 0;
-        const taxRate = 0.06;
+        const taxRate = 0.12;
 
         Object.keys(sessionStorage).forEach(key => {
             if(key !== 'React::DevTools::lastSelection') {
@@ -57,7 +58,7 @@ class Cart extends Component {
     getInitialTotalPrice = ( ) => {
 
         let total = 0;
-        const taxRate = 0.06;
+        const taxRate = 0.12;
 
         Object.keys(sessionStorage).forEach(key => {
             if(key !== 'React::DevTools::lastSelection') {
@@ -78,6 +79,13 @@ class Cart extends Component {
 
     }
 
+    cartAccountHandler = () => {
+
+    }
+
+    cartLoginHandler = () => {
+
+    }
     
 
     
@@ -123,49 +131,57 @@ class Cart extends Component {
                 Add one of your favorite meals to your cart and enjoy the bold
                 flavors of Lotus: Asian House today!
             </p>
-
-            <button className={classes.EmptyBtn}>
-                Order Now
-            </button>
+            <Link to='/#Order'>
+                <button onClick={this.props.clickedLink} className={classes.EmptyBtn}>
+                    Order Now
+                </button>
+            </Link>
             {this.props.user ? 
                 <button className={classes.EmptyUserReorderBtn}>
                     Re-Order Your Favorites
                 </button> : 
                 <div className={classes.EmptyGuestBtns}>
                     <p className={classes.EmptyPitchMsg}>Accounts allow you to earn rewards, easily reorder items you previously ordered, and save your settings</p>
-                    <button className={classes.EmptyGuestLoginBtn}>
+                    <button 
+                        onClick={this.props.clickedLogin}
+                        className={classes.EmptyGuestLoginBtn}
+                    >
                         Login
                     </button>
                     <span className={classes.Or}>Or</span>
-                    <button className={classes.EmptyGuestRegisterBtn}>
+                    <button 
+                        onClick={this.props.clickedAccount}
+                        className={classes.EmptyGuestRegisterBtn}
+                    >
                         Create Account
                     </button>
                 </div>
             }
         </div>
          :  <div className={classes.CartContainer}> 
-                <div className={classes.PayDiv}>
-                    <span className={classes.Summary}>Order Summary</span>  
+                <div className={classes.TotalDetails}>
+                    <div className={classes.PayDiv}>
+                        <span className={classes.Summary}>Order Summary</span>  
+                    </div>
+                    <div className={classes.PayDiv}>
+                        <span className={classes.CartTitleRes}>Subtotal:</span>
+                        <span style={{paddingLeft: '10px', paddingBottom: '20px'}}>
+                            {this.state.total ? '$' + this.state.total[0] : '$' + this.getInitialTotalPrice()[0]}
+                        </span>
+                    </div>
+                    <div className={classes.PayDiv}>
+                        <span className={classes.CartTitleRes}>Sales Tax:</span>
+                        <span style={{paddingLeft: '10px', paddingBottom: '20px'}}>
+                            {this.state.total ? '$' + this.state.total[1] : '$' + this.getInitialTotalPrice()[1]}
+                        </span>
+                    </div>
+                    <div className={classes.PayDiv}>
+                        <span className={classes.CartTitleRes}>Total:</span>
+                        <span style={{paddingLeft: '10px', paddingBottom: '20px'}}>
+                            {this.state.total ? '$' + this.state.total[2] : '$' + this.getInitialTotalPrice()[2]}
+                        </span>
+                    </div>
                 </div>
-                <div className={classes.PayDiv}>
-                    <span className={classes.CartTitleRes}>Subtotal:</span>
-                    <span style={{paddingLeft: '10px', paddingBottom: '20px'}}>
-                        {this.state.total ? '$' + this.state.total[0] : '$' + this.getInitialTotalPrice()[0]}
-                    </span>
-                </div>
-                <div className={classes.PayDiv}>
-                    <span className={classes.CartTitleRes}>Sales Tax:</span>
-                    <span style={{paddingLeft: '10px', paddingBottom: '20px'}}>
-                        {this.state.total ? '$' + this.state.total[1] : '$' + this.getInitialTotalPrice()[1]}
-                    </span>
-                </div>
-                <div className={classes.PayDiv}>
-                    <span className={classes.CartTitleRes}>Total:</span>
-                    <span style={{paddingLeft: '10px', paddingBottom: '20px'}}>
-                        {this.state.total ? '$' + this.state.total[2] : '$' + this.getInitialTotalPrice()[2]}
-                    </span>
-                </div>
-                
                 {items.map(item => (  
                     
                     <div className={classes.Cart}>

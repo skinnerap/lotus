@@ -1,12 +1,13 @@
 .NavProfile {
-    font-size: 50%;
+    font-size: 100%;
     display: flex;
-
+    
 }
 
 .Link {
     cursor: pointer;
     font-weight: 600;
+    font-size: 60%;
 }
 
 .Link:hover {
@@ -22,6 +23,13 @@
 .Or {
     font-weight: 600;
     text-transform: uppercase;
+    font-size: 50%;
+}
+
+.Border {
+    
+    display: flex;
+    padding: 5px 20px;
 }
 
 .NavProfile span img {
@@ -33,9 +41,19 @@
     cursor: pointer;
     transition: .5s;
     font-weight: 600;
+    font-size: 50%;
 }
 
 .Logout:hover {
+    color: #6e1e13;
+}
+
+.UserAccountName {
+    background-color: transparent;
+    padding-left: 10px;
+    margin: 0;
+    border: none;
+    font-weight: 600;
     color: #6e1e13;
 }
 

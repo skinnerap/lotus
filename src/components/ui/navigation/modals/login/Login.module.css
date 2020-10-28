@@ -33,6 +33,7 @@
 
 .Login svg {
     cursor: pointer;
+    width: 30px;
 }
 
 .Login svg path {

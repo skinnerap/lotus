@@ -105,7 +105,7 @@ class Meal extends Component {
                                 </div>
                             </div>
                         ))}
-                        <p>Leave an option unchecked to order the regular amount of that option!</p>
+                        <p>* Leave an option unchecked to order the regular amount of that option!</p>
 
                         <select onChange={(e) => this.upgradeHandler(e)}>
                             <option value='none'>Add Protein</option>
@@ -113,7 +113,12 @@ class Meal extends Component {
                                 return <option value={[choice.name, choice.price]} key={choice.name + index}>{choice.name} +${choice.price}</option>
                             })}
                         </select>
-                        <button onClick={() => this.props.submitModifiedOrder(this.props.name, this.state.mods, this.state.upgrade)}>Add Customized Meal</button>
+                        <button 
+                            onClick={() => this.props.submitModifiedOrder(this.props.name, this.state.mods, this.state.upgrade)}
+                            className={classes.SubmitModOrderBtn}
+                        >
+                            Add Customized Meal
+                        </button>
                     </div>
                 </Modal>
 

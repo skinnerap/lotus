@@ -32,6 +32,7 @@ class Login extends Component {
             console.log('Error: ' + err.toString());
         })
 
+        this.props.closeModal();
     }
 
 
@@ -62,7 +63,7 @@ class Login extends Component {
                         onChange={(e) => this.emailInputHandler(e)} 
                     />
                     <input 
-                        type='text' 
+                        type='password' 
                         name="password" 
                         placeholder='Password'
                         onChange={(e) => this.passwordInputHandler(e)} 

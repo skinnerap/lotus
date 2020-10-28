@@ -108,6 +108,10 @@
     padding-left: 20px;
 }
 
+.CartSpan .CartBtn {
+    width: 100px
+}
+
 @media(max-width: 1250px) {
     .Navbar ul li a {
         font-size: 85%;

@@ -114,6 +114,18 @@ class Layout extends Component {
 
     }
 
+    openLoginModalFromCartHandler = () => {
+
+        this.setState({showLoginModal: true, showBackdrop: true, showCartModal: false});
+
+    }
+
+    openAccountModalFromCartHandler = () => {
+
+        this.setState({showAccountModal: true, showBackdrop: true, showCartModal: false});
+
+    }
+
 
     render() {
 
@@ -149,7 +161,9 @@ class Layout extends Component {
                         clicked={this.closeLoginModalHandler}
                         clickedClose={this.closeLoginModalHandler}
                     >
-                        <LoginModal />
+                        <LoginModal 
+                            closeModal={this.closeLoginModalHandler}
+                        />
                     </Modal>
 
                     {/* CREATE NEW ACCOUNT */}
@@ -157,7 +171,9 @@ class Layout extends Component {
                         show={this.state.showAccountModal} 
                         clicked={this.closeAccountModalHandler}
                     >
-                        <AccountModal />
+                        <AccountModal 
+                            closeModal={this.closeAccountModalHandler}
+                        />
                     </Modal>
 
                     {/* VIEW CART */}
@@ -169,6 +185,9 @@ class Layout extends Component {
                             user={this.state.user}
                             updated={this.state.updatedCart}
                             completedUpdate={this.completedUpdateHandler}
+                            clickedLink={this.closeCartModalHandler}
+                            clickedLogin={this.openLoginModalFromCartHandler}
+                            clickedAccount={this.openAccountModalFromCartHandler}
                         />
                     </Modal>
 

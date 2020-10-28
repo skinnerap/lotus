@@ -33,9 +33,9 @@ const navbar = ( props ) => {
             </nav>
 
 
-                <span style={{display: 'flex'}}>
-                    <button disabled>{props.user ? props.user.email : 'Cart'}</button>
+                <span className={classes.CartSpan} style={{display: 'flex'}}>
                     <svg 
+                        className={classes.CartBtn}
                         onClick={props.clickedCart}
                         width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg"
                     >

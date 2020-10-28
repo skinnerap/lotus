@@ -142,16 +142,16 @@ const CartMeal = ( props ) => {
                         Remove Item
                     </button>
                 </div>
-        </div> : <div>
-                    <span style={{fontWeight: '600', paddingLeft: '20px', paddingRight: '20px'}}>This meal was removed</span>
+        </div> : <div className={classes.ItemRemovedConfirmation}>
+                    <span className={classes.MealRemovedMsg}>This meal was removed</span>
                     <button 
-                         
+                        className={classes.BringBackBtn}
                         onClick={() => incrementQuantityHandler(props.userMealName, props.id)}
                     >
                         Bring it Back?
                     </button>
                     <button
-                    
+                        className={classes.DeleteMealBtn}
                         onClick={() => deleteMealHandler(props.userMealName, props.id)}
                     >
                         Delete Meal

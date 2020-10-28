@@ -113,7 +113,7 @@
 
 .ModModal p {
     align-self: center;
-    font-size: 120%;
+    font-size: 100%;
     color: #711616;
     padding: 0 20px;
     font-weight: 500;
@@ -122,6 +122,12 @@
 .ModName span {
     font-size: 130%;
     font-weight: 500;
+}
+
+.ModModal .SubmitModOrderBtn {
+    font-size: 140%;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
 }
 
 .ModModal .ModsHeader {
