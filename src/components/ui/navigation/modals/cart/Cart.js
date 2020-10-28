@@ -196,6 +196,7 @@ class Cart extends Component {
                                     upgrade={i.userMealUpgrade}
                                     price={i.basePrice}
                                     quantity={i.quantity}
+                                    category={i.category ? i.category : 'Protein'}
                                     id={i.id}
                                     clickedRemoveItem={(key, id) => this.removeItemHandler(key, id)}
                                     changedMeal={this.getTotalPrice}
@@ -208,6 +209,7 @@ class Cart extends Component {
                     <button className={classes.Pay}>Pay Now</button>
                 </div>
             </div>
+            console.log(items)
 
         return (
             <div className={classes.Login}>

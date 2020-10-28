@@ -59,6 +59,24 @@ class Meal extends Component {
     }
 
     render() {
+        let optionInitialValue = 'Add Protein';
+        let modifyBtn = <div>
+                            <span className={classes.Or}>Or</span>
+                            <button onClick={this.showModalHandler} className={classes.Mod}>Modify</button>
+                        </div>;
+        if(this.props.category === 'sides') {
+            optionInitialValue = 'Small Size';
+            modifyBtn = <div></div>;
+        } else if(this.props.category === 'drinks') {
+            optionInitialValue = '12oz Can';
+            modifyBtn = <div></div>;
+        } else if(this.props.category === 'dessert') {
+            optionInitialValue = 'Small Size'
+            modifyBtn = <div></div>
+        }
+
+        
+        
         return (
             <Aux>
 
@@ -69,17 +87,17 @@ class Meal extends Component {
                         <span className={classes.Price}>${this.props.basePrice}</span>
                         <span>
                             <select onChange={(e) => this.upgradeHandler(e)}>
-                                <option value="none">Add Protein</option>
+                                <option value="none">{optionInitialValue}</option>
                                 {this.props.upgrades.map((choice, index) => {
-                                    return <option value={[choice.name, choice.price]} key={choice.name + index}>{choice.name} +${choice.price}</option>
+                                    return <option value={[choice.name, choice.price]} key={choice.name + index}>{choice.name} +${choice.price.toFixed(2)}</option>
                                 })}
                             </select>
                         </span>
                     </div>
                     
                     <button onClick={() => this.props.clickedAdd(this.props.name, this.state.mods, this.state.upgrade)} className={classes.Add}>Add to Cart</button>
-                    <span className={classes.Or}>Or</span>
-                    <button onClick={this.showModalHandler} className={classes.Mod}>Modify</button>
+                    {modifyBtn}
+                    
                 </div>
 
                 <Modal show={this.state.showModal} clicked={this.props.closeModModal}>

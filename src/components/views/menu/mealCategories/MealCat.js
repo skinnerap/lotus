@@ -36,10 +36,10 @@ class MealCat extends Component {
 
             if(category === 'noodles') this.setState({menu: menu.noodles});
             if(category === 'rice') this.setState({menu: menu.rice});
-            if(category === 'soups') this.setState({menu: menu.soups});
+            if(category === 'soup') this.setState({menu: menu.soup});
             if(category === 'vegeterian') this.setState({menu: menu.vegeterian});
             if(category === 'drinks') this.setState({menu: menu.drinks});
-            if(category === 'desserts') this.setState({menu: menu.desserts});
+            if(category === 'dessert') this.setState({menu: menu.dessert});
             if(category === 'sides') this.setState({menu: menu.sides});
             if(category === 'bahnmi') this.setState({menu: menu.bahnmi});
             
@@ -268,6 +268,7 @@ class MealCat extends Component {
                             basePrice={item.basePrice}
                             upgrades={item.upgrades}
                             mods={item.mods}
+                            category={this.props.category}
                             clickedAdd={(mealName, mealMods, mealUpgrade) => this.addMealChoiceAndOpenModalHandler(mealName, mealMods, mealUpgrade)}
                             clickedModify={(mealName, mealMods) => this.addModMealChoiceAndOpenModalHandler(mealName, mealMods)}
                             showModModal={this.state.showModsModal}

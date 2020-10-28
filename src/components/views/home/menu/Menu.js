@@ -28,28 +28,40 @@ const menu = ( props ) => {
                 </NavLink>
             </div>
             <div>
-                <img src={bahnmi} alt="Try Chef Chen's Thai Spice Bahn-Mi today, or one of his other amazing recipes!" />
-                <h3 className={classes.Title}>Bahn Mi</h3>
+                <NavLink to='/bahnmi'>
+                    <img src={bahnmi} alt="Try Chef Chen's Thai Spice Bahn-Mi today, or one of his other amazing recipes!" />
+                    <h3 className={classes.Title}>Bahn Mi</h3>
+                </NavLink>
             </div>
             <div>
-                <img src={dessert} alt="Finish your meal with a sweet treat!" />
-                <h3 className={classes.Title}>Dessert</h3>
+                <NavLink to='/dessert'>
+                    <img src={dessert} alt="Finish your meal with a sweet treat!" />
+                    <h3 className={classes.Title}>Dessert</h3>
+                </NavLink>
             </div>
             <div>
-                <img src={soups} alt="Try Chef Chen's dumplings today, or one of his other amazing recipes!" />
-                <h3 className={classes.Title}>Soups / Dumplings</h3>
+                <NavLink to='/soup'>
+                    <img src={soups} alt="Try Chef Chen's dumplings today, or one of his other amazing recipes!" />
+                    <h3 className={classes.Title}>Soups / Dumplings</h3>
+                </NavLink>
             </div>
             <div>
-                <img src={vegeterian} alt="Try one of Chef Chen's Vegeterian Entrees!" />
-                <h3 className={classes.Title}>Vegeterian Dishes</h3>
+                <NavLink to='/vegeterian'>
+                    <img src={vegeterian} alt="Try one of Chef Chen's Vegeterian Entrees!" />
+                    <h3 className={classes.Title}>Vegeterian Dishes</h3>
+                </NavLink>
             </div>
             <div>
-                <img src={sides} alt="Top off your meal with some extra sides!" />
-                <h3 className={classes.Title}>Sides</h3>
+                <NavLink to='/sides'>
+                    <img src={sides} alt="Top off your meal with some extra sides!" />
+                    <h3 className={classes.Title}>Sides</h3>
+                </NavLink>
             </div>
             <div>
-                <img src={drinks} alt="Need something refreshing to finish off your delicious meal? We got you!" />
-                <h3 className={classes.Title}>Drinks</h3>
+                <NavLink to='/drinks'>
+                    <img src={drinks} alt="Need something refreshing to finish off your delicious meal? We got you!" />
+                    <h3 className={classes.Title}>Drinks</h3>
+                </NavLink>
             </div>
         </div>
     )

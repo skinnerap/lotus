@@ -7,6 +7,10 @@ const CartMeal = ( props ) => {
     const price = props.price * quantity + ( props.upgrade ? +props.upgrade[1] * quantity : 0);
     const showMeal = quantity > 0 ? true : false;
 
+    const sizeCategories = ['drinks', 'dessert', 'sides'];
+    const upgradeText = sizeCategories.includes(props.category) ? 'Size: ' : 'Protein: ';
+
+    const showMods = sizeCategories.includes(props.category) ? false : true;
 
     let modArray = [];
     // Converts Non-Empty userMealMods from Object into Array
@@ -122,20 +126,21 @@ const CartMeal = ( props ) => {
                 
                 
                 <div className={classes.CartDiv}>
-                    <span className={classes.CartTitle}>Protein: </span><span className={classes.CartTitleRes2}>
+                    <span className={classes.CartTitle}>{upgradeText}</span><span className={classes.CartTitleRes2}>
                         {props.upgrade ? props.upgrade[0] + ': +$' + (+props.upgrade[1]).toFixed(2) : 'No Choice'}
                     </span>
                 </div>
 
                 <div className={classes.CartDiv}>
-                    
-                    <span className={classes.CartTitle}>Modifications:</span>
-                    {modArray.length > 0 ?
-                    
-                        modArray.map(mod => (
-                            <span className={classes.CartTitleRes2}>{mod !== 'none' ? mod : 'none'}</span>
-                        ))
-                      : <span className={classes.CartTitleRes2}>None</span>}  
+                    {showMods ?
+                    <div>
+                        <span className={classes.CartTitle}>Modifications:</span>
+                        {modArray.length > 0 ?
+                            modArray.map(mod => (
+                                <span className={classes.CartTitleRes2}>{mod !== 'none' ? mod : 'none'}</span>
+                            ))
+                        : <span className={classes.CartTitleRes2}>None</span>}
+                    </div>  : <div></div>} 
                 </div>
                 <div className={classes.CartDiv}>
                     <button onClick={() => removeQuantityHandler(props.userMealName, props.id)} className={classes.CartBtn}>

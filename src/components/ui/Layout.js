@@ -215,6 +215,72 @@ class Layout extends Component {
                             )}
                         />
                         <Route 
+                            path="/bahnmi"
+                            exact
+                            render={(props) => (
+                                <MealCat
+                                    {...props}
+                                    category='bahnmi'
+                                    updatedCart={this.updateCartHandler}
+                                />
+                            )}
+                        />
+                        <Route 
+                            path="/soup"
+                            exact
+                            render={(props) => (
+                                <MealCat
+                                    {...props}
+                                    category='soup'
+                                    updatedCart={this.updateCartHandler}
+                                />
+                            )}
+                        />
+                        <Route 
+                            path="/vegeterian"
+                            exact
+                            render={(props) => (
+                                <MealCat
+                                    {...props}
+                                    category='vegeterian'
+                                    updatedCart={this.updateCartHandler}
+                                />
+                            )}
+                        />
+                        <Route 
+                            path="/sides"
+                            exact
+                            render={(props) => (
+                                <MealCat
+                                    {...props}
+                                    category='sides'
+                                    updatedCart={this.updateCartHandler}
+                                />
+                            )}
+                        />
+                        <Route 
+                            path="/dessert"
+                            exact
+                            render={(props) => (
+                                <MealCat
+                                    {...props}
+                                    category='dessert'
+                                    updatedCart={this.updateCartHandler}
+                                />
+                            )}
+                        />
+                        <Route 
+                            path="/drinks"
+                            exact
+                            render={(props) => (
+                                <MealCat
+                                    {...props}
+                                    category='drinks'
+                                    updatedCart={this.updateCartHandler}
+                                />
+                            )}
+                        />
+                        <Route 
                             path="/"
                             exact
                             render={(props) => (
