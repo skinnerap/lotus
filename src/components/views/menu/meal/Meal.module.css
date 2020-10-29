@@ -21,8 +21,13 @@
     color: #303030;
 }
 
+.Meal .OptionsContainer {
+    text-align: center;
+}
+
 .Meal div {
     align-self: center;
+    width: 100%;
     padding: 20px 0;
 }
 
@@ -48,6 +53,7 @@
 
 .Add {
     background-color: #711616;
+    padding: 20px;
 }
 
 .Mod:hover {
@@ -117,6 +123,15 @@
     color: #711616;
     padding: 0 20px;
     font-weight: 500;
+}
+
+.ModifyContainer {
+    display: flex;
+    flex-flow: column;
+}
+
+.ModContainer .modifyBtn {
+    width: 100%;
 }
 
 .ModName span {

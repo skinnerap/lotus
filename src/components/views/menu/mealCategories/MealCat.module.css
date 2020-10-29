@@ -43,6 +43,45 @@
     padding: 50px;
 }
 
+.SubCartDiv {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.SubCartKeys {
+    width: 50%;
+    align-self: center;
+    padding: 10px;
+    text-align: center;
+    font-size: 130%;
+    letter-spacing: .1rem;
+    background-color: #B4891C;
+    color: #fff;
+    border: none;
+    margin-bottom: 50px;
+}
+
+.SubCartKeyOption {
+    border: none;
+    align-self: center;
+}
+
+.SubCartKeyList {
+    display: block;
+    align-self: center;
+    text-align: center;
+    font-size: 140%;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    padding-bottom: 20px;
+}
+
+.SubCartKeyOption:hover {
+    background-color: #B4891C;
+}
+
 .NameMeal {
     display: flex;
     flex-flow: column;
@@ -70,6 +109,7 @@
     padding: 20px 5px;
     border: 2px solid #FFAD41;
     background-color: transparent;
+    color: #711616;
 }
 
 .NameMeal button {

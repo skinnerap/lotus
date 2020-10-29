@@ -60,10 +60,12 @@ class Meal extends Component {
 
     render() {
         let optionInitialValue = 'Add Protein';
-        let modifyBtn = <div>
+
+        let modifyBtn = <div className={classes.ModifyContainer}>
                             <span className={classes.Or}>Or</span>
-                            <button onClick={this.showModalHandler} className={classes.Mod}>Modify</button>
+                            <button className={classes.modifyBtn} onClick={this.showModalHandler} className={classes.Mod}>Modify</button>
                         </div>;
+
         if(this.props.category === 'sides') {
             optionInitialValue = 'Small Size';
             modifyBtn = <div></div>;
@@ -75,15 +77,13 @@ class Meal extends Component {
             modifyBtn = <div></div>
         }
 
-        
-        
         return (
             <Aux>
 
                 <div className={classes.Meal}>
                     <h4>{this.props.name}</h4>
                     <p>{this.props.description}</p>
-                    <div>
+                    <div className={classes.OptionsContainer}>
                         <span className={classes.Price}>${this.props.basePrice}</span>
                         <span>
                             <select onChange={(e) => this.upgradeHandler(e)}>

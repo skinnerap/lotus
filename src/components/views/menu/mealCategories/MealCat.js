@@ -55,10 +55,6 @@ class MealCat extends Component {
 
     compareMealUpgrade = ( userMealUpgrade, currentMealUpgrade ) => {
 
-        console.log('BUG')
-        console.log(userMealUpgrade);
-        console.log(currentMealUpgrade);
-
         if(currentMealUpgrade === null && userMealUpgrade === '') return true;
         if(userMealUpgrade[0] === currentMealUpgrade[0]) return true;
         if(userMealUpgrade[0] === '' && !currentMealUpgrade[0]) return true;
@@ -68,51 +64,47 @@ class MealCat extends Component {
 
     compareMealMods = ( userMealMods, currentMealMods ) => {
 
-        console.log('COMPARE');
-        console.log(userMealMods)
-        console.log(currentMealMods)
         if(userMealMods === undefined && currentMealMods === undefined) {
-            console.log('x')
+          
             return true;
+
         } 
+
         if(userMealMods === undefined && currentMealMods !== undefined) {
-            console.log('y')
+          
             return false;
+
         } 
+
         if(userMealMods !== undefined && currentMealMods === undefined) {
+
             if(Object.keys(userMealMods).length === 0) {
-                console.log('z')
+        
                 return true;
+
             } 
-            console.log(userMealMods)
-            console.log('zz')
+    
             return false;
+
         } 
 
         if(Object.keys(userMealMods).length !== Object.keys(currentMealMods).length) return false;
 
         for(let i in userMealMods) {
 
-            console.log(userMealMods[i]);
-
             if(userMealMods[i] !== currentMealMods[i]) {
-                console.log('zzz')
+
                 return false;
+
             }
 
         }
 
-        console.log('zzzz')
         return true;
 
     }
 
     addMealChoiceAndOpenModalHandler = ( mealName, mealMods, mealUpgrade ) => {
-
-        console.log('ADDMEALCHOICE');
-        console.log(mealName);
-        console.log(mealMods);
-        console.log(mealUpgrade);
 
         if(!mealMods) mealMods = [];
         if(!mealUpgrade) mealUpgrade = null;
@@ -161,7 +153,6 @@ class MealCat extends Component {
                         if(i.name === this.state.userMealChoice) {
                             if(this.compareMealMods(i.userMealMods, this.state.userMealMods)
                                 && this.compareMealUpgrade(i.userMealUpgrade, this.state.userMealUpgrade)) {
-                                console.log(i);
                                 i.quantity++;
                                 i.id = i.userMealName + '-' + i.name + '-' + i.userMealUpgrade + '-';
                                 Object.keys(i.userMealMods).forEach(key => {
@@ -212,7 +203,9 @@ class MealCat extends Component {
     }
 
     closeModsModalHandler = () => {
-        this.setState({showModModal: false})
+
+        this.setState({showModModal: false});
+
     }
 
     inputNameMealHandler = (e) => {
@@ -285,10 +278,37 @@ class MealCat extends Component {
                     <div className={classes.NameMeal}>
                         <h6>Name This Meal</h6>
                         <input 
+                            
                             type='text' 
                             placeholder='Example: Bobs Meal'
                             onChange={(e) => this.inputNameMealHandler(e)}
                         />
+                        {Object.keys(sessionStorage).length > 0 ? 
+                        <div className={classes.SubCartDiv}>
+                            <span className={classes.SubCartKeyList}>Add to Current Meal</span>
+                            <select 
+                                onChange={(e) => this.inputNameMealHandler(e)}
+                                className={classes.SubCartKeys}
+                            >
+                                <option 
+                                    className={classes.SubCartKeyOption}
+                                    value='Anonymous'
+                                    id={'Anonymous' + Math.random(5)}
+                                >
+                                    Choose From Your Meals
+                                </option>
+                                {Object.keys(sessionStorage).map(key => (
+                                    <option 
+                                        className={classes.SubCartKeyOption}
+                                        value={key} 
+                                        id={key + Math.random(5)}
+                                    >
+                                        {key}
+                                    </option>
+                                ))}
+                            </select>
+                        </div> : <span></span> }
+                        
                         <button onClick={this.addMealHandler}>Submit</button>
                     </div>
                 </Modal>
