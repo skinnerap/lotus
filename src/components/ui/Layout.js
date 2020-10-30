@@ -24,6 +24,9 @@ import LoginModal from '../ui/navigation/modals/login/Login';
 import AccountModal from '../ui/navigation/modals/account/Account';
 import CartModal from '../ui/navigation/modals/cart/Cart';
 
+// Payment Modal
+import Checkout from '../ui/checkout/App';
+
 // UX Helpers
 import Backdrop from './ux/backdrop/Backdrop';
 import Modal from './ux/modal/Modal';
@@ -37,6 +40,7 @@ class Layout extends Component {
         showLoginModal: false,
         showAccountModal: false,
         showCartModal: false,
+        showCheckoutModal: false,
         updatedCart: false,
         user: null
 
@@ -126,6 +130,14 @@ class Layout extends Component {
 
     }
 
+    openCheckoutModal = () => {
+        this.setState({showCheckoutModal: true});
+    }
+
+    closeCheckoutModal = () => {
+        this.setState({showCheckoutModal: false});
+    }
+
 
     render() {
 
@@ -188,7 +200,15 @@ class Layout extends Component {
                             clickedLink={this.closeCartModalHandler}
                             clickedLogin={this.openLoginModalFromCartHandler}
                             clickedAccount={this.openAccountModalFromCartHandler}
+                            clickedPay={this.openCheckoutModal}
                         />
+                    </Modal>
+
+                    <Modal
+                        show={this.state.showCheckoutModal}
+                        clicked={this.closeCheckoutModalHandler}
+                    >
+                        <Checkout />
                     </Modal>
 
                     <Switch>

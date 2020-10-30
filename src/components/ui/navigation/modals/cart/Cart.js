@@ -7,7 +7,8 @@ import logo from '../../../../../assets/img/logo.png';
 class Cart extends Component {
 
     state = {
-        total: 0
+        total: 0,
+        updatedItemQuantity: null
     }
 
     removeItemHandler = ( key, id ) => {
@@ -206,10 +207,14 @@ class Cart extends Component {
                     </div>
                 ))}
                 <div className={classes.PayDiv}>
-                    <button className={classes.Pay}>Pay Now</button>
+                    <button 
+                        className={classes.Pay}
+                        onClick={this.props.clickedPay}
+                    >
+                        Pay Now
+                    </button>
                 </div>
             </div>
-            console.log(items)
 
         return (
             <div className={classes.Login}>
